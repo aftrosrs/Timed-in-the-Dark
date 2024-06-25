@@ -12,12 +12,17 @@
 [ext_resource type="PackedScene" uid="uid://betkllk0yhnfa" path="res://Questions Panel/panel.tscn" id="8_6lhaw"]
 [ext_resource type="Texture2D" uid="uid://bom7fv0vxnrga" path="res://Sprites/Heart_Active.webp" id="11_16a0w"]
 
-[node name="Trivia" type="Node2D" node_paths=PackedStringArray("buttons")]
+[node name="Trivia" type="Node2D" node_paths=PackedStringArray("buttons", "sprites")]
 script = ExtResource("1_b5c1u")
-health = 5
 questions = Array[Resource("res://Questions/questions.gd")]([ExtResource("2_111m6"), ExtResource("3_t5sqy"), ExtResource("4_qo5cs"), ExtResource("5_7fw8e"), ExtResource("6_vgwve"), ExtResource("7_8igtf")])
-buttons = [NodePath("QuestionsPanel/MarginContainer/VBoxContainer2/HBoxContainer/AnswerButton"), NodePath("QuestionsPanel/MarginContainer/VBoxContainer2/HBoxContainer/AnswerButton2"), NodePath("QuestionsPanel/MarginContainer/VBoxContainer2/HBoxContainer2/AnswerButton3"), NodePath("QuestionsPanel/MarginContainer/VBoxContainer2/HBoxContainer2/AnswerButton4")]
+buttons = [NodePath("CanvasLayer2/QuestionsPanel/HBoxContainer/AnswerButton"), NodePath("CanvasLayer2/QuestionsPanel/HBoxContainer/AnswerButton2"), NodePath("CanvasLayer2/QuestionsPanel/HBoxContainer2/AnswerButton3"), NodePath("CanvasLayer2/QuestionsPanel/HBoxContainer2/AnswerButton4")]
 menus = Array[PackedScene]([ExtResource("7_7dbhn")])
+sprites = [NodePath("CanvasLayer/HeartActive"), NodePath("CanvasLayer/HeartActive2"), NodePath("CanvasLayer/HeartActive3")]
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+
+[node name="QuestionsPanel" parent="CanvasLayer2" instance=ExtResource("8_6lhaw")]
+metadata/_edit_use_anchors_ = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -57,34 +62,22 @@ position = Vector2(641.5, 359.5)
 scale = Vector2(1.45011, 1.46184)
 texture = ExtResource("7_ygn5t")
 
-[node name="QuestionsPanel" parent="." instance=ExtResource("8_6lhaw")]
-offset_left = 16.0
-offset_top = 0.0
-offset_right = 16.0
-offset_bottom = 0.0
-
-[node name="MarginContainer" parent="QuestionsPanel" index="2"]
-offset_left = 337.0
-offset_top = 381.0
-offset_right = 1145.0
-offset_bottom = 670.0
-
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(640, 360)
 metadata/_edit_lock_ = true
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 30.0
+wait_time = 10.0
 one_shot = true
 
-[connection signal="pressed" from="QuestionsPanel/MarginContainer/VBoxContainer2/HBoxContainer/AnswerButton" to="." method="_on_answer_button_pressed"]
-[connection signal="pressed" from="QuestionsPanel/MarginContainer/VBoxContainer2/HBoxContainer/AnswerButton2" to="." method="_on_answer_button_2_pressed"]
-[connection signal="pressed" from="QuestionsPanel/MarginContainer/VBoxContainer2/HBoxContainer2/AnswerButton3" to="." method="_on_answer_button_3_pressed"]
-[connection signal="pressed" from="QuestionsPanel/MarginContainer/VBoxContainer2/HBoxContainer2/AnswerButton4" to="." method="_on_answer_button_4_pressed"]
+[connection signal="pressed" from="CanvasLayer2/QuestionsPanel/HBoxContainer/AnswerButton" to="." method="_on_answer_button_pressed"]
+[connection signal="pressed" from="CanvasLayer2/QuestionsPanel/HBoxContainer/AnswerButton2" to="." method="_on_answer_button_2_pressed"]
+[connection signal="pressed" from="CanvasLayer2/QuestionsPanel/HBoxContainer2/AnswerButton3" to="." method="_on_answer_button_3_pressed"]
+[connection signal="pressed" from="CanvasLayer2/QuestionsPanel/HBoxContainer2/AnswerButton4" to="." method="_on_answer_button_4_pressed"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 
-[editable path="QuestionsPanel"]
-[editable path="QuestionsPanel/MarginContainer/VBoxContainer2/HBoxContainer/AnswerButton"]
-[editable path="QuestionsPanel/MarginContainer/VBoxContainer2/HBoxContainer/AnswerButton2"]
-[editable path="QuestionsPanel/MarginContainer/VBoxContainer2/HBoxContainer2/AnswerButton3"]
-[editable path="QuestionsPanel/MarginContainer/VBoxContainer2/HBoxContainer2/AnswerButton4"]
+[editable path="CanvasLayer2/QuestionsPanel"]
+[editable path="CanvasLayer2/QuestionsPanel/HBoxContainer/AnswerButton"]
+[editable path="CanvasLayer2/QuestionsPanel/HBoxContainer/AnswerButton2"]
+[editable path="CanvasLayer2/QuestionsPanel/HBoxContainer2/AnswerButton3"]
+[editable path="CanvasLayer2/QuestionsPanel/HBoxContainer2/AnswerButton4"]

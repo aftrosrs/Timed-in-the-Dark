@@ -1,24 +1,24 @@
 extends Node2D
 
-@export var health: int = 20
+@export var health: int = 3
 @export var questions: Array[Question]
 @export var buttons: Array[Button]
 @export var menus: Array[PackedScene]
+@export var sprites: Array[Sprite2D]
 var menu_selector: int = 0
 var current_question_index: int = 0
 var question_limit_index: int = 6
 var current_answer_index: int = 0
 var correct_answer_index: int = 0
 var menu_index: int = 0
-@onready var question_field: Label = $QuestionsPanel/VBoxContainer/MarginContainer/VBoxContainer/PanelContainer/Panel/QuestionField
-@onready var question_timer: Label = $"QuestionsPanel/Question Timer"
+var sprite_index: int = 0
+@onready var question_field: Label = $CanvasLayer2/QuestionsPanel/PanelContainer/Panel/QuestionField
+@onready var question_timer: Label = $"CanvasLayer2/QuestionsPanel/Question Timer"
 @onready var timertimertimertimer: Timer = $Timer
 
 
 func _on_timer_timeout() -> void:
 	life()
-
-
 
 
 func _ready() -> void:
@@ -44,6 +44,11 @@ func _updateQuestion_Timer():
 
 func life():
 	health -= 1
+	if sprite_index < sprites.size():
+		sprites[sprite_index].visible = false
+	elif sprite_index > sprites.size() -1:
+		sprite_index = 0
+	sprite_index += 1
 	timertimertimertimer.start()
 	print(health)
 	if health <= 0:

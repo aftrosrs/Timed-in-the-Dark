@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://betkllk0yhnfa"]
+[gd_scene load_steps=5 format=3 uid="uid://betkllk0yhnfa"]
 
 [ext_resource type="Texture2D" uid="uid://b4cnascwf8r57" path="res://Sprites/Answer_Border.png" id="1_e0q01"]
 [ext_resource type="FontFile" uid="uid://cc2cd7c6s2yub" path="res://Font/BaroqueTextJF Regular.ttf" id="1_w3iua"]
 [ext_resource type="PackedScene" uid="uid://cstukqml3y23j" path="res://Questions Panel/answer_button.tscn" id="2_up148"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3klpf"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [node name="QuestionsPanel" type="Control"]
 layout_mode = 3
@@ -14,7 +17,7 @@ offset_bottom = 4.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
-size_flags_vertical = 3
+size_flags_vertical = 0
 
 [node name="Question Timer" type="Label" parent="."]
 layout_mode = 0
@@ -23,42 +26,25 @@ offset_top = 646.0
 offset_right = 138.0
 offset_bottom = 709.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="PanelContainer" type="PanelContainer" parent="."]
 self_modulate = Color(1, 1, 1, 0)
 texture_filter = 1
 layout_mode = 2
-anchor_top = -0.008
-anchor_bottom = -0.008
-offset_left = 318.0
-offset_top = -0.24
-offset_right = 946.0
-offset_bottom = 631.76
-theme_override_constants/separation = 75
+anchor_left = 0.262
+anchor_right = 0.718
+anchor_bottom = 0.2
+offset_left = 6.63995
+offset_top = -6.0
+offset_right = 6.95996
+theme_override_styles/panel = SubResource("StyleBoxFlat_3klpf")
 
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
-self_modulate = Color(1, 1, 1, 0)
-texture_filter = 1
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer"]
-self_modulate = Color(1, 1, 1, 0)
-texture_filter = 1
-layout_mode = 2
-theme_override_constants/separation = 20
-
-[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/MarginContainer/VBoxContainer"]
-self_modulate = Color(1, 1, 1, 0)
-texture_filter = 1
-layout_mode = 2
-
-[node name="Panel" type="Panel" parent="VBoxContainer/MarginContainer/VBoxContainer/PanelContainer"]
+[node name="Panel" type="Panel" parent="PanelContainer"]
 self_modulate = Color(1, 1, 1, 0)
 texture_filter = 1
 custom_minimum_size = Vector2(350, 150)
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer/MarginContainer/VBoxContainer/PanelContainer/Panel"]
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/Panel"]
 texture_filter = 1
 layout_mode = 1
 anchors_preset = -1
@@ -76,7 +62,7 @@ texture = ExtResource("1_e0q01")
 expand_mode = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="QuestionField" type="Label" parent="VBoxContainer/MarginContainer/VBoxContainer/PanelContainer/Panel"]
+[node name="QuestionField" type="Label" parent="PanelContainer/Panel"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = -0.308801
@@ -96,48 +82,45 @@ vertical_alignment = 1
 autowrap_mode = 3
 metadata/_edit_use_anchors_ = true
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.219844
-anchor_top = 0.447222
-anchor_right = 0.729719
-anchor_bottom = 0.889
-offset_left = -3.40002
-offset_top = -4.0
-offset_right = -1.04004
-offset_bottom = -0.0800171
-grow_horizontal = 2
-grow_vertical = 2
-metadata/_edit_use_anchors_ = true
-
-[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 2
-theme_override_constants/separation = 95
-
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer2"]
-layout_mode = 2
+anchor_left = 0.237
+anchor_top = 0.437
+anchor_right = 0.745
+anchor_bottom = 0.592
+offset_left = 11.64
+offset_top = 0.359985
+offset_right = 11.3999
+offset_bottom = -0.23999
 size_flags_vertical = 3
 theme_override_constants/separation = 200
 
-[node name="AnswerButton" parent="MarginContainer/VBoxContainer2/HBoxContainer" instance=ExtResource("2_up148")]
+[node name="AnswerButton" parent="HBoxContainer" instance=ExtResource("2_up148")]
 layout_mode = 2
 
-[node name="AnswerButton2" parent="MarginContainer/VBoxContainer2/HBoxContainer" instance=ExtResource("2_up148")]
+[node name="AnswerButton2" parent="HBoxContainer" instance=ExtResource("2_up148")]
 layout_mode = 2
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer2"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="."]
 layout_mode = 2
+anchor_left = 0.237
+anchor_top = 0.715
+anchor_right = 0.619
+anchor_bottom = 0.879
+offset_left = 11.64
+offset_top = 0.199951
+offset_right = 172.68
+offset_bottom = 0.119934
 size_flags_vertical = 3
 theme_override_constants/separation = 200
 
-[node name="AnswerButton3" parent="MarginContainer/VBoxContainer2/HBoxContainer2" instance=ExtResource("2_up148")]
+[node name="AnswerButton3" parent="HBoxContainer2" instance=ExtResource("2_up148")]
 layout_mode = 2
 
-[node name="AnswerButton4" parent="MarginContainer/VBoxContainer2/HBoxContainer2" instance=ExtResource("2_up148")]
+[node name="AnswerButton4" parent="HBoxContainer2" instance=ExtResource("2_up148")]
 layout_mode = 2
 
-[editable path="MarginContainer/VBoxContainer2/HBoxContainer/AnswerButton"]
-[editable path="MarginContainer/VBoxContainer2/HBoxContainer/AnswerButton2"]
-[editable path="MarginContainer/VBoxContainer2/HBoxContainer2/AnswerButton3"]
-[editable path="MarginContainer/VBoxContainer2/HBoxContainer2/AnswerButton4"]
+[editable path="HBoxContainer/AnswerButton"]
+[editable path="HBoxContainer/AnswerButton2"]
+[editable path="HBoxContainer2/AnswerButton3"]
+[editable path="HBoxContainer2/AnswerButton4"]
