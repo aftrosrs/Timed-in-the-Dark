@@ -1,9 +1,6 @@
 extends Control
 
 
-
-
-
 func _ready() -> void:
 	$CanvasLayer/MarginContainer2/VBoxContainer/HBoxContainer/AnswerButton.text = String("Restart game")
 

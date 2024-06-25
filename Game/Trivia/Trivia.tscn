@@ -15,28 +15,28 @@
 [node name="Trivia" type="Node2D" node_paths=PackedStringArray("buttons", "sprites") groups=["trivia"]]
 script = ExtResource("1_b5c1u")
 questions = Array[Resource("res://Questions/questions.gd")]([ExtResource("2_111m6"), ExtResource("3_t5sqy"), ExtResource("4_qo5cs"), ExtResource("5_7fw8e"), ExtResource("6_vgwve"), ExtResource("7_8igtf")])
-buttons = [NodePath("CanvasLayer2/QuestionsPanel/HBoxContainer/AnswerButton"), NodePath("CanvasLayer2/QuestionsPanel/HBoxContainer/AnswerButton2"), NodePath("CanvasLayer2/QuestionsPanel/HBoxContainer2/AnswerButton3"), NodePath("CanvasLayer2/QuestionsPanel/HBoxContainer2/AnswerButton4")]
+buttons = [NodePath("Questions Panel/QuestionsPanel/HBoxContainer/AnswerButton"), NodePath("Questions Panel/QuestionsPanel/HBoxContainer/AnswerButton2"), NodePath("Questions Panel/QuestionsPanel/HBoxContainer2/AnswerButton3"), NodePath("Questions Panel/QuestionsPanel/HBoxContainer2/AnswerButton4")]
 menus = Array[PackedScene]([ExtResource("7_7dbhn")])
-sprites = [NodePath("CanvasLayer/HeartActive"), NodePath("CanvasLayer/HeartActive2"), NodePath("CanvasLayer/HeartActive3")]
+sprites = [NodePath("Hearts/HeartActive"), NodePath("Hearts/HeartActive2"), NodePath("Hearts/HeartActive3")]
 
-[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+[node name="Questions Panel" type="CanvasLayer" parent="."]
 
-[node name="QuestionsPanel" parent="CanvasLayer2" instance=ExtResource("8_6lhaw")]
+[node name="QuestionsPanel" parent="Questions Panel" instance=ExtResource("8_6lhaw")]
 metadata/_edit_use_anchors_ = true
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="Hearts" type="CanvasLayer" parent="."]
 
-[node name="HeartActive" type="Sprite2D" parent="CanvasLayer"]
+[node name="HeartActive" type="Sprite2D" parent="Hearts"]
 position = Vector2(56, 68)
 scale = Vector2(0.265537, 0.19699)
 texture = ExtResource("11_16a0w")
 
-[node name="HeartActive2" type="Sprite2D" parent="CanvasLayer"]
+[node name="HeartActive2" type="Sprite2D" parent="Hearts"]
 position = Vector2(56, 188)
 scale = Vector2(0.265537, 0.19699)
 texture = ExtResource("11_16a0w")
 
-[node name="HeartActive3" type="Sprite2D" parent="CanvasLayer"]
+[node name="HeartActive3" type="Sprite2D" parent="Hearts"]
 position = Vector2(56, 313)
 scale = Vector2(0.265537, 0.19699)
 texture = ExtResource("11_16a0w")
@@ -70,14 +70,14 @@ metadata/_edit_lock_ = true
 wait_time = 10.0
 one_shot = true
 
-[connection signal="pressed" from="CanvasLayer2/QuestionsPanel/HBoxContainer/AnswerButton" to="." method="_on_answer_button_pressed"]
-[connection signal="pressed" from="CanvasLayer2/QuestionsPanel/HBoxContainer/AnswerButton2" to="." method="_on_answer_button_2_pressed"]
-[connection signal="pressed" from="CanvasLayer2/QuestionsPanel/HBoxContainer2/AnswerButton3" to="." method="_on_answer_button_3_pressed"]
-[connection signal="pressed" from="CanvasLayer2/QuestionsPanel/HBoxContainer2/AnswerButton4" to="." method="_on_answer_button_4_pressed"]
+[connection signal="pressed" from="Questions Panel/QuestionsPanel/HBoxContainer/AnswerButton" to="." method="_on_answer_button_pressed"]
+[connection signal="pressed" from="Questions Panel/QuestionsPanel/HBoxContainer/AnswerButton2" to="." method="_on_answer_button_2_pressed"]
+[connection signal="pressed" from="Questions Panel/QuestionsPanel/HBoxContainer2/AnswerButton3" to="." method="_on_answer_button_3_pressed"]
+[connection signal="pressed" from="Questions Panel/QuestionsPanel/HBoxContainer2/AnswerButton4" to="." method="_on_answer_button_4_pressed"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 
-[editable path="CanvasLayer2/QuestionsPanel"]
-[editable path="CanvasLayer2/QuestionsPanel/HBoxContainer/AnswerButton"]
-[editable path="CanvasLayer2/QuestionsPanel/HBoxContainer/AnswerButton2"]
-[editable path="CanvasLayer2/QuestionsPanel/HBoxContainer2/AnswerButton3"]
-[editable path="CanvasLayer2/QuestionsPanel/HBoxContainer2/AnswerButton4"]
+[editable path="Questions Panel/QuestionsPanel"]
+[editable path="Questions Panel/QuestionsPanel/HBoxContainer/AnswerButton"]
+[editable path="Questions Panel/QuestionsPanel/HBoxContainer/AnswerButton2"]
+[editable path="Questions Panel/QuestionsPanel/HBoxContainer2/AnswerButton3"]
+[editable path="Questions Panel/QuestionsPanel/HBoxContainer2/AnswerButton4"]
