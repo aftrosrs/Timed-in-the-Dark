@@ -1,10 +1,16 @@
-extends Node2D
+class_name Trivia extends Node2D
 
+@export_category("Stats")
+@export_group("Stats")
 @export var health: int = 3
+@export var questions_answered: int = 0
+@export_category("Arrays")
+@export_group("Arrays")
 @export var questions: Array[Question]
 @export var buttons: Array[Button]
 @export var menus: Array[PackedScene]
 @export var sprites: Array[Sprite2D]
+
 var menu_selector: int = 0
 var current_question_index: int = 0
 var question_limit_index: int = 6
@@ -12,9 +18,11 @@ var current_answer_index: int = 0
 var correct_answer_index: int = 0
 var menu_index: int = 0
 var sprite_index: int = 0
+
 @onready var question_field: Label = $CanvasLayer2/QuestionsPanel/PanelContainer/Panel/QuestionField
 @onready var question_timer: Label = $"CanvasLayer2/QuestionsPanel/Question Timer"
 @onready var timertimertimertimer: Timer = $Timer
+@onready var score_label: Label = $"CanvasLayer2/QuestionsPanel/Score Label"
 
 
 func _on_timer_timeout() -> void:
@@ -33,7 +41,6 @@ func pressed(button_index: int):
 	if button_index == questions[current_question_index].correct_answer_index:
 		questions[current_question_index].correct_answer_index = questions[current_question_index].correct_answer_index
 		next_question()
-		
 	else:
 		life()
 
@@ -55,15 +62,14 @@ func life():
 		get_tree().change_scene_to_packed(menus[0])
 
 func next_question():
+	score_label.text = str(questions[current_question_index].score)
+	questions_answered += 1
 	await get_tree().create_timer(0.1).timeout
 	timertimertimertimer.start()
 	current_question_index += 1
 	_updateQuestion()
 	_updateAnswer()
 
-#func restart_question_timer():
-	#var timer_better_work_damnit = get_tree().create_timer(10)
-	#timer_better_work_damnit.timeout.connect(life)
 
 func _updateQuestion():
 	for question in questions:
@@ -111,21 +117,20 @@ func _button_alpha(index):
 
 func _on_answer_button_pressed() -> void:
 	pressed(0)
-	
+
 
 
 func _on_answer_button_2_pressed() -> void:
 	pressed(1)
-	
+
 
 
 func _on_answer_button_3_pressed() -> void:
 	pressed(2)
-	
+
 
 
 func _on_answer_button_4_pressed() -> void:
-	pressed(3)
-	
+	pressed(3)	
 
 

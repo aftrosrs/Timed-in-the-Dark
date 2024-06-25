@@ -52,3 +52,7 @@ folder_colors={
 [filesystem]
 
 import/blender/enabled=false
+
+[physics]
+
+common/size/window_height_override=1080

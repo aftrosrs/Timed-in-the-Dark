@@ -1,20 +1,22 @@
-[gd_scene load_steps=6 format=3 uid="uid://bcmk3714lc7tb"]
+[gd_scene load_steps=7 format=3 uid="uid://bcmk3714lc7tb"]
 
 [ext_resource type="Texture2D" uid="uid://wr06h53uqcr3" path="res://Sprites/Game_Background.webp" id="1_5f0n0"]
 [ext_resource type="Script" path="res://Game/GameOver.gd" id="1_o23nv"]
 [ext_resource type="Theme" uid="uid://njobidcon4c5" path="res://Font/font_theme.tres" id="2_lcb0y"]
 [ext_resource type="StyleBox" uid="uid://duhfqnqj7w5ky" path="res://Questions Panel/button.tres" id="3_ws47h"]
 [ext_resource type="LabelSettings" uid="uid://swopcct6qg1x" path="res://Questions Panel/panel.tres" id="4_bpawd"]
+[ext_resource type="PackedScene" uid="uid://cstukqml3y23j" path="res://Questions Panel/answer_button.tscn" id="6_382bk"]
 
-[node name="Game over" type="Control"]
+[node name="Game Over" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = -1280.0
+offset_bottom = -720.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_o23nv")
-metadata/_edit_use_anchors_ = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -60,15 +62,10 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="CanvasLayer/MarginContainer/CenterContainer/VBoxContainer/MarginContainer/PanelContainer/Panel"]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
 offset_left = -100.0
 offset_top = -19.0
 offset_right = 65.0
 offset_bottom = 19.0
-grow_horizontal = 2
-grow_vertical = 2
 text = "YOU DIED!"
 label_settings = ExtResource("4_bpawd")
 horizontal_alignment = 1
@@ -77,14 +74,14 @@ metadata/_edit_use_anchors_ = true
 
 [node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer"]
 anchors_preset = -1
-anchor_left = 0.281714
-anchor_top = 0.545
-anchor_right = 0.649
-anchor_bottom = 0.825
-offset_left = -0.200012
-offset_top = -3.05176e-05
-offset_right = -0.300079
-offset_bottom = -3.05176e-05
+anchor_left = 0.385
+anchor_top = 0.785
+anchor_right = 0.561
+anchor_bottom = 0.926
+offset_left = 0.199982
+offset_top = -0.200012
+offset_right = -0.0800781
+offset_bottom = 0.279968
 grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_use_anchors_ = true
@@ -95,10 +92,11 @@ alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/MarginContainer2/VBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
 alignment = 1
 
-[node name="Button" type="Button" parent="CanvasLayer/MarginContainer2/VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(100, 35)
+[node name="AnswerButton" parent="CanvasLayer/MarginContainer2/VBoxContainer/HBoxContainer" instance=ExtResource("6_382bk")]
 layout_mode = 2
 
-[connection signal="pressed" from="CanvasLayer/MarginContainer2/VBoxContainer/HBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/MarginContainer2/VBoxContainer/HBoxContainer/AnswerButton" to="." method="_on_answer_button_pressed"]

@@ -1,8 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://cstukqml3y23j"]
+[gd_scene load_steps=4 format=3 uid="uid://cstukqml3y23j"]
 
 [ext_resource type="Theme" uid="uid://njobidcon4c5" path="res://Font/font_theme.tres" id="1_i5gp7"]
 [ext_resource type="StyleBox" uid="uid://duhfqnqj7w5ky" path="res://Questions Panel/button.tres" id="2_ween6"]
-[ext_resource type="Script" path="res://Questions Panel/answer_button.gd" id="3_0owln"]
 [ext_resource type="Texture2D" uid="uid://b4cnascwf8r57" path="res://Sprites/Answer_Border.png" id="4_hyrw5"]
 
 [node name="AnswerButton" type="Button"]
@@ -27,7 +26,6 @@ theme_override_styles/focus = ExtResource("2_ween6")
 action_mode = 0
 flat = true
 clip_text = true
-script = ExtResource("3_0owln")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 show_behind_parent = true

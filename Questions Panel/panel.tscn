@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://betkllk0yhnfa"]
+[gd_scene load_steps=6 format=3 uid="uid://betkllk0yhnfa"]
 
 [ext_resource type="Texture2D" uid="uid://b4cnascwf8r57" path="res://Sprites/Answer_Border.png" id="1_e0q01"]
 [ext_resource type="FontFile" uid="uid://cc2cd7c6s2yub" path="res://Font/BaroqueTextJF Regular.ttf" id="1_w3iua"]
 [ext_resource type="PackedScene" uid="uid://cstukqml3y23j" path="res://Questions Panel/answer_button.tscn" id="2_up148"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_lpgmi"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3klpf"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -25,6 +27,22 @@ offset_left = 8.0
 offset_top = 646.0
 offset_right = 138.0
 offset_bottom = 709.0
+
+[node name="Score Label" type="Label" parent="."]
+texture_filter = 2
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.038
+anchor_top = -0.333
+anchor_right = 0.385
+anchor_bottom = 0.143
+offset_left = 1194.64
+offset_top = 887.76
+offset_right = 781.2
+offset_bottom = 594.04
+label_settings = SubResource("LabelSettings_lpgmi")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 self_modulate = Color(1, 1, 1, 0)

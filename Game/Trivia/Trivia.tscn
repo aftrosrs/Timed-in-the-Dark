@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://betkllk0yhnfa" path="res://Questions Panel/panel.tscn" id="8_6lhaw"]
 [ext_resource type="Texture2D" uid="uid://bom7fv0vxnrga" path="res://Sprites/Heart_Active.webp" id="11_16a0w"]
 
-[node name="Trivia" type="Node2D" node_paths=PackedStringArray("buttons", "sprites")]
+[node name="Trivia" type="Node2D" node_paths=PackedStringArray("buttons", "sprites") groups=["trivia"]]
 script = ExtResource("1_b5c1u")
 questions = Array[Resource("res://Questions/questions.gd")]([ExtResource("2_111m6"), ExtResource("3_t5sqy"), ExtResource("4_qo5cs"), ExtResource("5_7fw8e"), ExtResource("6_vgwve"), ExtResource("7_8igtf")])
 buttons = [NodePath("CanvasLayer2/QuestionsPanel/HBoxContainer/AnswerButton"), NodePath("CanvasLayer2/QuestionsPanel/HBoxContainer/AnswerButton2"), NodePath("CanvasLayer2/QuestionsPanel/HBoxContainer2/AnswerButton3"), NodePath("CanvasLayer2/QuestionsPanel/HBoxContainer2/AnswerButton4")]
