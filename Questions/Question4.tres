@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Question" load_steps=2 format=3 uid="uid://bmg6sdi4h268h"]
+
+[ext_resource type="Script" path="res://Questions/questions.gd" id="1_x8cdl"]
+
+[resource]
+script = ExtResource("1_x8cdl")
+question = "Illegally extracted, Illegally sold. My seller is Graverobber, I come from a corpse. You can’t feel anything, addicted to the knife. A little glass bottle, touch if you must."
+answers = Array[String](["Spice", "Nuke", "Zydrate", "NZT-48"])
+correct_answer_index = 2

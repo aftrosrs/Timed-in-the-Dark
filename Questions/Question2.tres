@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Question" load_steps=2 format=3 uid="uid://1o217vhrucf7"]
+
+[ext_resource type="Script" path="res://Questions/questions.gd" id="1_finrc"]
+
+[resource]
+script = ExtResource("1_finrc")
+question = "I played God, now I must pay the price. My cousin, my wife, the love of my life. In my hubris I made, now they all fall. It wanted love I failed to make, I died in the arctic, my Hell I made."
+answers = Array[String](["Mary Shelly              ", "Lord Byron            ", "D. Nosfaratu           ", "Victor Frankenstein   "])
+menus = Array[PackedScene]([])
+correct_answer_index = 3

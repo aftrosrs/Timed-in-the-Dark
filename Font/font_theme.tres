@@ -1,0 +1,7 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://njobidcon4c5"]
+
+[ext_resource type="FontFile" uid="uid://cc2cd7c6s2yub" path="res://Font/BaroqueTextJF Regular.ttf" id="1_63lxs"]
+
+[resource]
+default_font = ExtResource("1_63lxs")
+/font_sizes/size = 16

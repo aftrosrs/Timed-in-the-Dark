@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Question" load_steps=2 format=3 uid="uid://bfixxvvci4yj1"]
+
+[ext_resource type="Script" path="res://Questions/questions.gd" id="1_fhalw"]
+
+[resource]
+script = ExtResource("1_fhalw")
+question = "Jupiter, Saturn, our planets come from me. The mighty empire that was still reflects in our dreams. The entire old world is influenced by my owner’s wrath, My children all over, still living as we speak. I’m dead yet forever known."
+answers = Array[String](["Persion", "Greek", "Sumerian", "Latin"])
+menus = Array[PackedScene]([])
+correct_answer_index = 3

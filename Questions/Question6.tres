@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Question" load_steps=2 format=3 uid="uid://ds05jdm51cn0u"]
+
+[ext_resource type="Script" path="res://Questions/questions.gd" id="1_hs4ev"]
+
+[resource]
+script = ExtResource("1_hs4ev")
+question = "A blood type, a band, a gothic breakthrough.Bloody kisses, October Rust, The World is Coming Down. A carnivore turned green, Life Is Killing Me."
+answers = Array[String](["Type B Green", "Type AB", "Type O Negative", "Type A Red"])
+correct_answer_index = 3

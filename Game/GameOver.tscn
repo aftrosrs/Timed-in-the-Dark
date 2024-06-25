@@ -1,0 +1,104 @@
+[gd_scene load_steps=6 format=3 uid="uid://bcmk3714lc7tb"]
+
+[ext_resource type="Texture2D" uid="uid://wr06h53uqcr3" path="res://Sprites/Game_Background.webp" id="1_5f0n0"]
+[ext_resource type="Script" path="res://Game/GameOver.gd" id="1_o23nv"]
+[ext_resource type="Theme" uid="uid://njobidcon4c5" path="res://Font/font_theme.tres" id="2_lcb0y"]
+[ext_resource type="StyleBox" uid="uid://duhfqnqj7w5ky" path="res://Questions Panel/button.tres" id="3_ws47h"]
+[ext_resource type="LabelSettings" uid="uid://swopcct6qg1x" path="res://Questions Panel/panel.tres" id="4_bpawd"]
+
+[node name="Game over" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_o23nv")
+metadata/_edit_use_anchors_ = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_left = -0.014
+anchor_right = 1.0
+anchor_bottom = 1.027
+offset_left = -0.2
+offset_top = -6.0
+offset_right = 5.0
+offset_bottom = 2.19998
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_5f0n0")
+expand_mode = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/MarginContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer/CenterContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/MarginContainer/CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_bottom = 200
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/MarginContainer/CenterContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+theme = ExtResource("2_lcb0y")
+theme_override_styles/panel = ExtResource("3_ws47h")
+
+[node name="Panel" type="Panel" parent="CanvasLayer/MarginContainer/CenterContainer/VBoxContainer/MarginContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/MarginContainer/CenterContainer/VBoxContainer/MarginContainer/PanelContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -100.0
+offset_top = -19.0
+offset_right = 65.0
+offset_bottom = 19.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "YOU DIED!"
+label_settings = ExtResource("4_bpawd")
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_left = 0.281714
+anchor_top = 0.545
+anchor_right = 0.649
+anchor_bottom = 0.825
+offset_left = -0.200012
+offset_top = -3.05176e-05
+offset_right = -0.300079
+offset_bottom = -3.05176e-05
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer2"]
+layout_mode = 2
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Button" type="Button" parent="CanvasLayer/MarginContainer2/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 35)
+layout_mode = 2
+
+[connection signal="pressed" from="CanvasLayer/MarginContainer2/VBoxContainer/HBoxContainer/Button" to="." method="_on_button_pressed"]

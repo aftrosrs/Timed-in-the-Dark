@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Question" load_steps=2 format=3 uid="uid://b3akqy0sybreu"]
+
+[ext_resource type="Script" path="res://Questions/questions.gd" id="1_or5og"]
+
+[resource]
+script = ExtResource("1_or5og")
+question = "A human, a demon, Leviathan I serve. A box of truth, a puzzle with no lies. Dimension to dimension, Heaven, Hell. They're both the same thing, your kind can't tell. Angels to some, demons to others, you opened the box, now come with me, you must."
+answers = Array[String](["Nosferatu             ", "Insanity                  ", "Cenobite                      ", "Pelesit                      "])
+menus = Array[PackedScene]([])
+correct_answer_index = 2
