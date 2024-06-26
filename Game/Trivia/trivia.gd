@@ -12,7 +12,6 @@ class_name Trivia extends Node2D
 @export var canvas_layers: Array[CanvasLayer]
 @export var sprites: Array[Sprite2D]
 
-
 var menu_selector: int = 0
 var current_question_index: int = 0
 
@@ -35,6 +34,10 @@ var button_select_index: int = 0
 @onready var color_rect4: ColorRect = $"Questions Panel/QuestionsPanel/HBoxContainer2/AnswerButton4/ColorRect"
 @onready var color_rect5: ColorRect = $"Game Over/MarginContainer2/VBoxContainer/HBoxContainer/AnswerButton/ColorRect"
 @onready var animation_player: AnimationPlayer = $Hearts/AnimationPlayer
+@onready var animation_player_2: AnimationPlayer = $Hearts/AnimationPlayer2
+@onready var animation_player_3: AnimationPlayer = $Hearts/AnimationPlayer3
+@onready var animation_player_4: AnimationPlayer = $AspectRatioContainer/AnimationPlayer
+
 @onready var question_limit_index: int = questions.size()
 
 func _on_timer_timeout() -> void:
@@ -45,6 +48,7 @@ func _on_timer_timeout() -> void:
 
 func _ready() -> void:
 	animation_player.play("Idle")
+	animation_player_4.play("background")
 	score_label.text = str("0")
 	_updateQuestion()
 	_updateAnswer()
@@ -68,30 +72,35 @@ func _updateQuestion_Timer():
 
 func life():
 	health -= 1
-	animation_player.play("take damage")
-	if sprite_index < sprites.size():
+	if sprite_index > sprites.size() -1:
+		sprite_index = 0
+	elif sprite_index < sprites.size():
 		sprites[sprite_index].visible = false
 		timertimertimertimer.paused = true
-		await get_tree().create_timer(0.1).timeout
-	elif sprite_index > sprites.size() -1:
-		sprite_index = 0
+	if health == 2:
+		animation_player.play("Idle")
+		animation_player_2.play("take damage")
+	if health == 3:
+		animation_player.play("Idle")
+		animation_player_2.stop()
+		animation_player_3.play("take_damage_2")
 	sprite_index += 1
 	timertimertimertimer.paused = false
 	print(health)
 	if health <= 0:
 		canvas_layers[1].show()
+		canvas_layers[2].hide()
 		canvas_layers[0].hide()
 		color_rect_hide()
 		game_over_score.text = score_label.text
-		if questions_answered_correctly == question_limit_index:
-			questions_answered.text = "You answered them all"
-		elif questions_answered_correctly <= question_limit_index:
+		if questions_answered_correctly <= question_limit_index:
 			questions_answered.text = "You answered: " + str(questions_answered_correctly) + " questions correctly"
+
+
 
 func next_question():
 	score_label.text = str(questions[current_question_index].score)
 	questions_answered_correctly += 1
-	await get_tree().create_timer(0.0).timeout
 	color_rect_show()
 	current_question_index += 1
 	_updateQuestion()

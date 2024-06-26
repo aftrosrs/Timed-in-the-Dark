@@ -1,12 +1,26 @@
-[gd_scene load_steps=6 format=3 uid="uid://betkllk0yhnfa"]
+[gd_scene load_steps=11 format=3 uid="uid://betkllk0yhnfa"]
 
 [ext_resource type="Texture2D" uid="uid://b4cnascwf8r57" path="res://Sprites/Answer_Border.png" id="1_e0q01"]
 [ext_resource type="FontFile" uid="uid://cc2cd7c6s2yub" path="res://Font/BaroqueTextJF Regular.ttf" id="1_w3iua"]
+[ext_resource type="FontFile" uid="uid://cyaetsiyt6peh" path="res://Font/Georgia-zEPX.otf" id="2_eo46l"]
 [ext_resource type="PackedScene" uid="uid://cstukqml3y23j" path="res://Questions Panel/answer_button.tscn" id="2_up148"]
+
+[sub_resource type="Theme" id="Theme_3lega"]
+default_font = ExtResource("1_w3iua")
+default_font_size = 32
+
+[sub_resource type="Theme" id="Theme_6kkox"]
+default_font = ExtResource("1_w3iua")
+default_font_size = 32
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nqpn5"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_lpgmi"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3klpf"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s7qcf"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [node name="QuestionsPanel" type="Control"]
@@ -27,9 +41,12 @@ offset_left = 8.0
 offset_top = 646.0
 offset_right = 138.0
 offset_bottom = 709.0
+theme = SubResource("Theme_3lega")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Score Label" type="Label" parent="."]
-texture_filter = 2
+texture_filter = 1
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.895
@@ -39,6 +56,16 @@ anchor_bottom = 0.968
 offset_left = 0.399902
 offset_right = 0.399902
 offset_bottom = 0.039978
+theme = SubResource("Theme_6kkox")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 27
+theme_override_constants/shadow_offset_y = 19
+theme_override_constants/outline_size = 16
+theme_override_constants/shadow_outline_size = 23
+theme_override_fonts/font = ExtResource("1_w3iua")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_nqpn5")
 label_settings = SubResource("LabelSettings_lpgmi")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -82,18 +109,22 @@ metadata/_edit_use_anchors_ = true
 [node name="QuestionField" type="Label" parent="PanelContainer/Panel"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = -0.308801
-anchor_top = 0.8
-anchor_right = 1.266
-anchor_bottom = 1.72
+anchor_left = -0.285834
+anchor_top = 0.38
+anchor_right = 1.27577
+anchor_bottom = 1.78667
 offset_left = -0.072998
 offset_right = -0.0480347
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("1_w3iua")
-theme_override_font_sizes/font_size = 24
-text = "
-"
+theme_override_constants/shadow_offset_x = 29
+theme_override_constants/shadow_offset_y = 14
+theme_override_constants/outline_size = 1
+theme_override_constants/shadow_outline_size = 23
+theme_override_constants/line_spacing = 0
+theme_override_fonts/font = ExtResource("2_eo46l")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_s7qcf")
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3

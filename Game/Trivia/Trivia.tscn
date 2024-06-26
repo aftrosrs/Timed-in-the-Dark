@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dj8ytedkqox1h"]
+[gd_scene load_steps=24 format=3 uid="uid://dj8ytedkqox1h"]
 
 [ext_resource type="Script" path="res://Game/Trivia/trivia.gd" id="1_b5c1u"]
 [ext_resource type="Resource" uid="uid://b3akqy0sybreu" path="res://Questions/Question1.tres" id="2_111m6"]
@@ -8,85 +8,11 @@
 [ext_resource type="Resource" uid="uid://bfixxvvci4yj1" path="res://Questions/Question5.tres" id="6_vgwve"]
 [ext_resource type="PackedScene" uid="uid://bcmk3714lc7tb" path="res://Game/GameOver.tscn" id="7_7dbhn"]
 [ext_resource type="Resource" uid="uid://ds05jdm51cn0u" path="res://Questions/Question6.tres" id="7_8igtf"]
-[ext_resource type="Texture2D" uid="uid://wr06h53uqcr3" path="res://Sprites/Game_Background.webp" id="7_ygn5t"]
+[ext_resource type="Texture2D" uid="uid://bb8po0vxe4vka" path="res://Sprites/Game_Background.webp" id="7_ygn5t"]
 [ext_resource type="PackedScene" uid="uid://betkllk0yhnfa" path="res://Questions Panel/panel.tscn" id="8_6lhaw"]
+[ext_resource type="Texture2D" uid="uid://bjuc07buipgma" path="res://Sprites/Heart_Dead.png" id="10_goexv"]
 [ext_resource type="Texture2D" uid="uid://bom7fv0vxnrga" path="res://Sprites/Heart_Active.webp" id="11_16a0w"]
-
-[sub_resource type="Animation" id="Animation_g1ylt"]
-resource_name = "Take Damage"
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("HeartActive:self_modulate")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.4, 0.5, 0.7, 1),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 2,
-"values": [Color(1, 1, 1, 1), Color(0.875782, 0.464863, 0.629639, 1), Color(1, 1, 1, 1), Color(0.875782, 0.464863, 0.629639, 1), Color(1, 1, 1, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("HeartActive:scale")
-tracks/1/interp = 2
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.4, 0.5, 0.7, 1),
-"transitions": PackedFloat32Array(2, -2, -0.5, 0.5, 2),
-"update": 2,
-"values": [Vector2(0.265537, 0.19699), Vector2(0.35, 0.259), Vector2(0.265537, 0.19699), Vector2(0.35, 0.259), Vector2(0.265537, 0.19699)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("HeartActive2:scale")
-tracks/2/interp = 2
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.4, 0.5, 0.7, 1),
-"transitions": PackedFloat32Array(2, -2, -0.5, 0.5, 2),
-"update": 2,
-"values": [Vector2(0.265537, 0.19699), Vector2(0.35, 0.259), Vector2(0.265537, 0.19699), Vector2(0.35, 0.259), Vector2(0.265537, 0.19699)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("HeartActive2:self_modulate")
-tracks/3/interp = 2
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.4, 0.5, 0.7, 1),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 2,
-"values": [Color(1, 1, 1, 1), Color(0.875782, 0.464863, 0.629639, 1), Color(1, 1, 1, 1), Color(0.875782, 0.464863, 0.629639, 1), Color(1, 1, 1, 1)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("HeartActive3:self_modulate")
-tracks/4/interp = 2
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.4, 0.5, 0.7, 1),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 2,
-"values": [Color(1, 1, 1, 1), Color(0.875782, 0.464863, 0.629639, 1), Color(1, 1, 1, 1), Color(0.875782, 0.464863, 0.629639, 1), Color(1, 1, 1, 1)]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("HeartActive3:scale")
-tracks/5/interp = 2
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0, 0.4, 0.5, 0.7, 1),
-"transitions": PackedFloat32Array(2, -2, -0.5, 0.5, 2),
-"update": 2,
-"values": [Vector2(0.265537, 0.19699), Vector2(0.35, 0.259), Vector2(0.265537, 0.19699), Vector2(0.35, 0.259), Vector2(0.265537, 0.19699)]
-}
+[ext_resource type="Animation" uid="uid://cswo4h88nhmci" path="res://Animations/Idle.res" id="11_eloj3"]
 
 [sub_resource type="Animation" id="Animation_mb25j"]
 length = 0.001
@@ -162,47 +88,117 @@ tracks/5/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
 }
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("ColorRect:self_modulate")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0.662745, 0.231373, 0.247059, 0)]
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_v7ey1"]
+_data = {
+"Idle": ExtResource("11_eloj3"),
+"RESET": SubResource("Animation_mb25j")
 }
 
-[sub_resource type="Animation" id="Animation_kihjf"]
+[sub_resource type="Animation" id="Animation_fe1un"]
 resource_name = "take damage"
+length = 1.3
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/path = NodePath("ColorRect:self_modulate")
-tracks/0/interp = 1
+tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.4, 0.5, 0.7, 1),
+"times": PackedFloat32Array(0, 0.4, 0.7, 1, 1.3),
 "transitions": PackedFloat32Array(2, -2, -0.5, 0.5, 2),
-"update": 0,
+"update": 2,
 "values": [Color(0.662745, 0.231373, 0.247059, 0), Color(0.682353, 0.239216, 0.254902, 0.0392157), Color(0.662745, 0.231373, 0.247059, 0), Color(0.662745, 0.231373, 0.247059, 0.0392157), Color(0.662745, 0.231373, 0.247059, 0)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HeartDead:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_v7ey1"]
+[sub_resource type="Animation" id="Animation_wtd2g"]
+length = 0.001
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_a5gt4"]
 _data = {
-"Idle": SubResource("Animation_g1ylt"),
-"RESET": SubResource("Animation_mb25j"),
-"take damage": SubResource("Animation_kihjf")
+"RESET": SubResource("Animation_wtd2g"),
+"take damage": SubResource("Animation_fe1un")
+}
+
+[sub_resource type="Animation" id="Animation_g2dbm"]
+resource_name = "take_damage_2"
+length = 1.3
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:self_modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.7, 1, 1.3),
+"transitions": PackedFloat32Array(2, -2, -0.5, 0.5, 2),
+"update": 2,
+"values": [Color(0.662745, 0.231373, 0.247059, 0), Color(0.682353, 0.239216, 0.254902, 0.156863), Color(0.662745, 0.231373, 0.247059, 0), Color(0.682353, 0.239216, 0.254902, 0.156863), Color(0.662745, 0.231373, 0.247059, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HeartDead2:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_sqgsp"]
+_data = {
+"take_damage_2": SubResource("Animation_g2dbm")
+}
+
+[sub_resource type="Animation" id="Animation_efrwf"]
+resource_name = "background"
+length = 10.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AspectRatioContainer/GameBackground:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 5, 9.1, 10.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 2,
+"values": [Vector2(1.45918, 1.46575), Vector2(1.45918, 1.46575), Vector2(2, 2.009), Vector2(1.45918, 1.46575), Vector2(1.45918, 1.46575)]
+}
+
+[sub_resource type="Animation" id="Animation_v83c5"]
+length = 0.001
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0ey0j"]
+_data = {
+"RESET": SubResource("Animation_v83c5"),
+"background": SubResource("Animation_efrwf")
 }
 
 [node name="Trivia" type="Node2D" node_paths=PackedStringArray("buttons", "canvas_layers", "sprites") groups=["trivia"]]
+texture_filter = 1
 script = ExtResource("1_b5c1u")
 questions = Array[Resource("res://Questions/questions.gd")]([ExtResource("2_111m6"), ExtResource("3_t5sqy"), ExtResource("4_qo5cs"), ExtResource("5_7fw8e"), ExtResource("6_vgwve"), ExtResource("7_8igtf")])
 buttons = [NodePath("Questions Panel/QuestionsPanel/HBoxContainer/AnswerButton"), NodePath("Questions Panel/QuestionsPanel/HBoxContainer/AnswerButton2"), NodePath("Questions Panel/QuestionsPanel/HBoxContainer2/AnswerButton3"), NodePath("Questions Panel/QuestionsPanel/HBoxContainer2/AnswerButton4")]
-canvas_layers = [NodePath("Questions Panel"), NodePath("Game Over")]
+canvas_layers = [NodePath("Questions Panel"), NodePath("Game Over"), NodePath("Hearts")]
 sprites = [NodePath("Hearts/HeartActive"), NodePath("Hearts/HeartActive2"), NodePath("Hearts/HeartActive3")]
 
 [node name="Questions Panel" type="CanvasLayer" parent="."]
@@ -210,10 +206,16 @@ sprites = [NodePath("Hearts/HeartActive"), NodePath("Hearts/HeartActive2"), Node
 [node name="QuestionsPanel" parent="Questions Panel" instance=ExtResource("8_6lhaw")]
 metadata/_edit_use_anchors_ = true
 
+[node name="Score Label" parent="Questions Panel/QuestionsPanel" index="1"]
+anchor_left = 0.863
+anchor_top = 0.847
+offset_left = 0.359985
+offset_top = 0.159973
+
 [node name="Game Over" parent="." instance=ExtResource("7_7dbhn")]
 visible = false
 
-[node name="QuestionsAnswered" parent="Game Over" index="4"]
+[node name="QuestionsAnswered" parent="Game Over" index="5"]
 anchor_left = 0.0914062
 anchor_top = 0.0361111
 anchor_right = 0.193062
@@ -227,7 +229,7 @@ metadata/_edit_use_anchors_ = true
 [node name="Hearts" type="CanvasLayer" parent="."]
 
 [node name="ColorRect" type="ColorRect" parent="Hearts"]
-self_modulate = Color(0.662745, 0.231373, 0.247059, 0)
+self_modulate = Color(0.667232, 0.233167, 0.248853, 0.0358926)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -235,24 +237,48 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
+[node name="HeartDead" type="Sprite2D" parent="Hearts"]
+self_modulate = Color(0.0980992, 0.0172412, 0.00448164, 1)
+texture_filter = 1
+position = Vector2(71, 79)
+scale = Vector2(0.193, 0.142)
+texture = ExtResource("10_goexv")
+
 [node name="HeartActive" type="Sprite2D" parent="Hearts"]
 position = Vector2(71, 79)
 scale = Vector2(0.265537, 0.19699)
 texture = ExtResource("11_16a0w")
 
+[node name="HeartDead2" type="Sprite2D" parent="Hearts"]
+self_modulate = Color(0.0980992, 0.0172412, 0.00448164, 1)
+texture_filter = 1
+position = Vector2(71, 208)
+scale = Vector2(0.193, 0.142)
+texture = ExtResource("10_goexv")
+
 [node name="HeartActive2" type="Sprite2D" parent="Hearts"]
-position = Vector2(71, 218)
+position = Vector2(71, 208)
 scale = Vector2(0.265537, 0.19699)
 texture = ExtResource("11_16a0w")
 
 [node name="HeartActive3" type="Sprite2D" parent="Hearts"]
-position = Vector2(71, 355)
+position = Vector2(71, 342)
 scale = Vector2(0.265537, 0.19699)
 texture = ExtResource("11_16a0w")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Hearts"]
 libraries = {
 "": SubResource("AnimationLibrary_v7ey1")
+}
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="Hearts"]
+libraries = {
+"": SubResource("AnimationLibrary_a5gt4")
+}
+
+[node name="AnimationPlayer3" type="AnimationPlayer" parent="Hearts"]
+libraries = {
+"": SubResource("AnimationLibrary_sqgsp")
 }
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -271,10 +297,15 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="GameBackground" type="Sprite2D" parent="AspectRatioContainer"]
-texture_filter = 4
-position = Vector2(641.5, 359.5)
-scale = Vector2(1.45011, 1.46184)
+position = Vector2(665, 363)
+scale = Vector2(1.44888, 1.45541)
 texture = ExtResource("7_ygn5t")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="AspectRatioContainer"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_0ey0j")
+}
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(640, 360)

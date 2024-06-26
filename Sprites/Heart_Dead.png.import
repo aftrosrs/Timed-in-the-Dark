@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bb8po0vxe4vka"
-path="res://.godot/imported/Game_Background.webp-fd9a50e9316dd8bbe014c192057ba65a.ctex"
+uid="uid://bjuc07buipgma"
+path="res://.godot/imported/Heart_Dead.png-a364009f1d88ad82bcd456c1b721e9b2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Game_Background.webp"
-dest_files=["res://.godot/imported/Game_Background.webp-fd9a50e9316dd8bbe014c192057ba65a.ctex"]
+source_file="res://Sprites/Heart_Dead.png"
+dest_files=["res://.godot/imported/Heart_Dead.png-a364009f1d88ad82bcd456c1b721e9b2.ctex"]
 
 [params]
 
