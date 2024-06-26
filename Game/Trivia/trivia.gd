@@ -36,9 +36,16 @@ var button_select_index: int = 0
 @onready var animation_player: AnimationPlayer = $Hearts/AnimationPlayer
 @onready var animation_player_2: AnimationPlayer = $Hearts/AnimationPlayer2
 @onready var animation_player_3: AnimationPlayer = $Hearts/AnimationPlayer3
-@onready var animation_player_4: AnimationPlayer = $AspectRatioContainer/AnimationPlayer
+@onready var animation_player_4: AnimationPlayer = $AspectRatioContainer/AnimationPlayer4
+@onready var animation_player_5: AnimationPlayer = $Hearts/AnimationPlayer5
+@onready var animation_player_6: AnimationPlayer = $Hearts/AnimationPlayer6
+@onready var animation_player_7: AnimationPlayer = $Hearts/AnimationPlayer7
 
+
+@onready var question_number_label: Label = $"Questions Panel/QuestionsPanel/PanelContainer/Panel/QuestionNumber"
+@onready var question_value: Label = $"Questions Panel/QuestionsPanel/PanelContainer/Panel/QuestionValue"
 @onready var question_limit_index: int = questions.size()
+
 
 func _on_timer_timeout() -> void:
 	life()
@@ -63,6 +70,7 @@ func pressed(button_index: int):
 		questions[current_question_index].correct_answer_index = questions[current_question_index].correct_answer_index
 		next_question()
 	else:
+	
 		life()
 
 
@@ -71,23 +79,23 @@ func _updateQuestion_Timer():
 
 
 func life():
-	health -= 1
-	if sprite_index > sprites.size() -1:
-		sprite_index = 0
-	elif sprite_index < sprites.size():
-		sprites[sprite_index].visible = false
-		timertimertimertimer.paused = true
-	if health == 2:
-		animation_player.play("Idle")
-		animation_player_2.play("take damage")
 	if health == 3:
+		animation_player_5.play("heart_shake")
+	elif health == 2:
 		animation_player.play("Idle")
+		animation_player_6.play("heart_shake_2")
+		animation_player_2.play("take damage")
+	elif health == 1:
+		animation_player.play("Idle")
+		animation_player_7.play("heart_shake_3")
 		animation_player_2.stop()
 		animation_player_3.play("take_damage_2")
+	health -= 1
 	sprite_index += 1
 	timertimertimertimer.paused = false
 	print(health)
 	if health <= 0:
+		await get_tree().create_timer(1).timeout
 		canvas_layers[1].show()
 		canvas_layers[2].hide()
 		canvas_layers[0].hide()
@@ -117,6 +125,8 @@ func _updateQuestion():
 			#HACK personal way to close game on all questions answered correctly.
 			get_tree().quit()#hack replace this line with survive condition.
 		question_field.text = questions[current_question_index].question
+		question_number_label.text = "Question: " + str(current_question_index + 1)
+		question_value.text = "For " + str(questions[current_question_index].score) + " Souls"
 
 
 
