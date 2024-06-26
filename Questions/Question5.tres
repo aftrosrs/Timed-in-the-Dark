@@ -7,4 +7,4 @@ script = ExtResource("1_fhalw")
 question = "Jupiter, Saturn, our planets come from me. The mighty empire that was still reflects in our dreams. The entire old world is influenced by my owner’s wrath, My children all over, still living as we speak. I’m dead yet forever known."
 answers = Array[String](["Persion", "Greek", "Sumerian", "Latin"])
 correct_answer_index = 3
-score = 0
+score = 25000

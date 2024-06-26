@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dj8ytedkqox1h"]
+[gd_scene load_steps=16 format=3 uid="uid://dj8ytedkqox1h"]
 
 [ext_resource type="Script" path="res://Game/Trivia/trivia.gd" id="1_b5c1u"]
 [ext_resource type="Resource" uid="uid://b3akqy0sybreu" path="res://Questions/Question1.tres" id="2_111m6"]
@@ -12,11 +12,197 @@
 [ext_resource type="PackedScene" uid="uid://betkllk0yhnfa" path="res://Questions Panel/panel.tscn" id="8_6lhaw"]
 [ext_resource type="Texture2D" uid="uid://bom7fv0vxnrga" path="res://Sprites/Heart_Active.webp" id="11_16a0w"]
 
-[node name="Trivia" type="Node2D" node_paths=PackedStringArray("buttons", "sprites") groups=["trivia"]]
+[sub_resource type="Animation" id="Animation_g1ylt"]
+resource_name = "Take Damage"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HeartActive:self_modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.5, 0.7, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 2,
+"values": [Color(1, 1, 1, 1), Color(0.875782, 0.464863, 0.629639, 1), Color(1, 1, 1, 1), Color(0.875782, 0.464863, 0.629639, 1), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HeartActive:scale")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.5, 0.7, 1),
+"transitions": PackedFloat32Array(2, -2, -0.5, 0.5, 2),
+"update": 2,
+"values": [Vector2(0.265537, 0.19699), Vector2(0.35, 0.259), Vector2(0.265537, 0.19699), Vector2(0.35, 0.259), Vector2(0.265537, 0.19699)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("HeartActive2:scale")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.5, 0.7, 1),
+"transitions": PackedFloat32Array(2, -2, -0.5, 0.5, 2),
+"update": 2,
+"values": [Vector2(0.265537, 0.19699), Vector2(0.35, 0.259), Vector2(0.265537, 0.19699), Vector2(0.35, 0.259), Vector2(0.265537, 0.19699)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("HeartActive2:self_modulate")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.5, 0.7, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 2,
+"values": [Color(1, 1, 1, 1), Color(0.875782, 0.464863, 0.629639, 1), Color(1, 1, 1, 1), Color(0.875782, 0.464863, 0.629639, 1), Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("HeartActive3:self_modulate")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.5, 0.7, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 2,
+"values": [Color(1, 1, 1, 1), Color(0.875782, 0.464863, 0.629639, 1), Color(1, 1, 1, 1), Color(0.875782, 0.464863, 0.629639, 1), Color(1, 1, 1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("HeartActive3:scale")
+tracks/5/interp = 2
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.5, 0.7, 1),
+"transitions": PackedFloat32Array(2, -2, -0.5, 0.5, 2),
+"update": 2,
+"values": [Vector2(0.265537, 0.19699), Vector2(0.35, 0.259), Vector2(0.265537, 0.19699), Vector2(0.35, 0.259), Vector2(0.265537, 0.19699)]
+}
+
+[sub_resource type="Animation" id="Animation_mb25j"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HeartActive:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HeartActive:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.265537, 0.19699)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("HeartActive2:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("HeartActive2:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.265537, 0.19699)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("HeartActive3:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.265537, 0.19699)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("HeartActive3:self_modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("ColorRect:self_modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.662745, 0.231373, 0.247059, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_kihjf"]
+resource_name = "take damage"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.5, 0.7, 1),
+"transitions": PackedFloat32Array(2, -2, -0.5, 0.5, 2),
+"update": 0,
+"values": [Color(0.662745, 0.231373, 0.247059, 0), Color(0.682353, 0.239216, 0.254902, 0.0392157), Color(0.662745, 0.231373, 0.247059, 0), Color(0.662745, 0.231373, 0.247059, 0.0392157), Color(0.662745, 0.231373, 0.247059, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_v7ey1"]
+_data = {
+"Idle": SubResource("Animation_g1ylt"),
+"RESET": SubResource("Animation_mb25j"),
+"take damage": SubResource("Animation_kihjf")
+}
+
+[node name="Trivia" type="Node2D" node_paths=PackedStringArray("buttons", "canvas_layers", "sprites") groups=["trivia"]]
 script = ExtResource("1_b5c1u")
 questions = Array[Resource("res://Questions/questions.gd")]([ExtResource("2_111m6"), ExtResource("3_t5sqy"), ExtResource("4_qo5cs"), ExtResource("5_7fw8e"), ExtResource("6_vgwve"), ExtResource("7_8igtf")])
 buttons = [NodePath("Questions Panel/QuestionsPanel/HBoxContainer/AnswerButton"), NodePath("Questions Panel/QuestionsPanel/HBoxContainer/AnswerButton2"), NodePath("Questions Panel/QuestionsPanel/HBoxContainer2/AnswerButton3"), NodePath("Questions Panel/QuestionsPanel/HBoxContainer2/AnswerButton4")]
-menus = Array[PackedScene]([ExtResource("7_7dbhn")])
+canvas_layers = [NodePath("Questions Panel"), NodePath("Game Over")]
 sprites = [NodePath("Hearts/HeartActive"), NodePath("Hearts/HeartActive2"), NodePath("Hearts/HeartActive3")]
 
 [node name="Questions Panel" type="CanvasLayer" parent="."]
@@ -24,22 +210,50 @@ sprites = [NodePath("Hearts/HeartActive"), NodePath("Hearts/HeartActive2"), Node
 [node name="QuestionsPanel" parent="Questions Panel" instance=ExtResource("8_6lhaw")]
 metadata/_edit_use_anchors_ = true
 
+[node name="Game Over" parent="." instance=ExtResource("7_7dbhn")]
+visible = false
+
+[node name="QuestionsAnswered" parent="Game Over" index="4"]
+anchor_left = 0.0914062
+anchor_top = 0.0361111
+anchor_right = 0.193062
+anchor_bottom = 0.0681111
+offset_left = 874.0
+offset_top = 592.0
+offset_right = 1022.88
+offset_bottom = 591.96
+metadata/_edit_use_anchors_ = true
+
 [node name="Hearts" type="CanvasLayer" parent="."]
 
+[node name="ColorRect" type="ColorRect" parent="Hearts"]
+self_modulate = Color(0.662745, 0.231373, 0.247059, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
 [node name="HeartActive" type="Sprite2D" parent="Hearts"]
-position = Vector2(56, 68)
+position = Vector2(71, 79)
 scale = Vector2(0.265537, 0.19699)
 texture = ExtResource("11_16a0w")
 
 [node name="HeartActive2" type="Sprite2D" parent="Hearts"]
-position = Vector2(56, 188)
+position = Vector2(71, 218)
 scale = Vector2(0.265537, 0.19699)
 texture = ExtResource("11_16a0w")
 
 [node name="HeartActive3" type="Sprite2D" parent="Hearts"]
-position = Vector2(56, 313)
+position = Vector2(71, 355)
 scale = Vector2(0.265537, 0.19699)
 texture = ExtResource("11_16a0w")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Hearts"]
+libraries = {
+"": SubResource("AnimationLibrary_v7ey1")
+}
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_left = -342.0
@@ -64,10 +278,9 @@ texture = ExtResource("7_ygn5t")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(640, 360)
-metadata/_edit_lock_ = true
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 10.0
+wait_time = 30.0
 one_shot = true
 
 [connection signal="pressed" from="Questions Panel/QuestionsPanel/HBoxContainer/AnswerButton" to="." method="_on_answer_button_pressed"]
@@ -81,3 +294,5 @@ one_shot = true
 [editable path="Questions Panel/QuestionsPanel/HBoxContainer/AnswerButton2"]
 [editable path="Questions Panel/QuestionsPanel/HBoxContainer2/AnswerButton3"]
 [editable path="Questions Panel/QuestionsPanel/HBoxContainer2/AnswerButton4"]
+[editable path="Game Over"]
+[editable path="Game Over/MarginContainer2/VBoxContainer/HBoxContainer/AnswerButton"]

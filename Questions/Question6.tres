@@ -7,4 +7,4 @@ script = ExtResource("1_hs4ev")
 question = "A blood type, a band, a gothic breakthrough.Bloody kisses, October Rust, The World is Coming Down. A carnivore turned green, Life Is Killing Me."
 answers = Array[String](["Type B Green", "Type AB", "Type O Negative", "Type A Red"])
 correct_answer_index = 3
-score = 0
+score = 25000
