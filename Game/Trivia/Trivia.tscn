@@ -403,16 +403,17 @@ grow_vertical = 0
 text = ""
 
 [node name="Game Over" parent="." instance=ExtResource("7_7dbhn")]
+visible = false
 
 [node name="QuestionsAnswered" parent="Game Over" index="5"]
-anchor_left = 0.0914062
-anchor_top = 0.0361111
-anchor_right = 0.193062
-anchor_bottom = 0.0681111
-offset_left = 816.0
-offset_top = 559.0
-offset_right = 964.88
-offset_bottom = 563.96
+anchor_left = 0.678
+anchor_top = 0.812
+anchor_right = 0.951
+anchor_bottom = 0.854
+offset_left = 0.159973
+offset_right = -0.280029
+offset_bottom = 0.119995
+text = ""
 metadata/_edit_use_anchors_ = true
 
 [node name="Hearts" type="CanvasLayer" parent="."]

@@ -48,6 +48,7 @@ var button_select_index: int = 0
 
 
 func _on_timer_timeout() -> void:
+	heart_shake()
 	life()
 	timertimertimertimer.start()
 
@@ -70,7 +71,7 @@ func pressed(button_index: int):
 		questions[current_question_index].correct_answer_index = questions[current_question_index].correct_answer_index
 		next_question()
 	else:
-	
+		heart_shake()
 		life()
 
 
@@ -79,23 +80,13 @@ func _updateQuestion_Timer():
 
 
 func life():
-	if health == 3:
-		animation_player_5.play("heart_shake")
-	elif health == 2:
-		animation_player.play("Idle")
-		animation_player_6.play("heart_shake_2")
-		animation_player_2.play("take damage")
-	elif health == 1:
-		animation_player.play("Idle")
-		animation_player_7.play("heart_shake_3")
-		animation_player_2.stop()
-		animation_player_3.play("take_damage_2")
 	health -= 1
 	sprite_index += 1
 	timertimertimertimer.paused = false
 	print(health)
 	if health <= 0:
 		await get_tree().create_timer(1).timeout
+		end_anims()
 		canvas_layers[1].show()
 		canvas_layers[2].hide()
 		canvas_layers[0].hide()
@@ -104,7 +95,11 @@ func life():
 		if questions_answered_correctly <= question_limit_index:
 			questions_answered.text = "You answered: " + str(questions_answered_correctly) + " questions correctly"
 
-
+func end_anims():
+	animation_player.stop()
+	animation_player_2.stop()
+	animation_player_3.stop()
+	animation_player_4.stop()
 
 func next_question():
 	score_label.text = str(questions[current_question_index].score)
@@ -114,6 +109,16 @@ func next_question():
 	_updateQuestion()
 	_updateAnswer()
 
+func heart_shake():
+	if health == 3:
+		animation_player_5.play("heart_shake")
+		animation_player_2.play("take damage")
+	elif health == 2:
+		animation_player_2.stop()
+		animation_player_6.play("heart_shake_2")
+		animation_player_3.play("take_damage_2")
+	elif health == 1:
+		animation_player_7.play("heart_shake_3")
 
 
 func _updateQuestion():
@@ -196,5 +201,3 @@ func _on_answer_button_3_pressed() -> void:
 
 func _on_answer_button_4_pressed() -> void:
 	pressed(3)
-
-

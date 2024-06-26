@@ -1,5 +1,5 @@
 extends Node
-#TODO Make heart shake on dmg, add some sfx to it and make it beat faster on damage.
+#TODO add some sfx to heart shake animations, and make it beat faster on damage.
 #TODO a way to restore health would also be nice
 #TODO Screens for win condition, lose condition screen has a score and answered correctly score and a restart game button
 #TODO Main menu

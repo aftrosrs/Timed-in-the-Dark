@@ -133,16 +133,17 @@ metadata/_edit_use_anchors_ = true
 [node name="QuestionsAnswered" type="Label" parent="."]
 texture_filter = 1
 anchors_preset = -1
-anchor_left = 0.714
-anchor_top = 0.742
-anchor_right = 0.995
-anchor_bottom = 0.794
-offset_left = 0.0799561
-offset_top = -0.240051
-offset_right = -0.600098
-offset_bottom = 0.320007
+anchor_left = 0.687
+anchor_top = 0.737
+anchor_right = 0.968
+anchor_bottom = 0.79
+offset_left = 0.639954
+offset_top = 0.359985
+offset_right = -0.0400391
+offset_bottom = 0.200073
 theme = SubResource("Theme_gtcsw")
 theme_override_font_sizes/font_size = 32
+text = "You answered 1 questions correctly"
 horizontal_alignment = 1
 vertical_alignment = 1
 
