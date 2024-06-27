@@ -1,0 +1,10 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://cehm53rxi8a62"]
+
+[ext_resource type="FontFile" uid="uid://cc2cd7c6s2yub" path="res://Font/BaroqueTextJF Regular.ttf" id="1_5ob2a"]
+
+[resource]
+font = ExtResource("1_5ob2a")
+font_size = 64
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+shadow_color = Color(1, 0, 0, 1)

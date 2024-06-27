@@ -1,6 +1,6 @@
 [gd_scene load_steps=32 format=3 uid="uid://dj8ytedkqox1h"]
 
-[ext_resource type="Script" path="res://Game/Trivia/trivia.gd" id="1_b5c1u"]
+[ext_resource type="Script" path="res://Game/Trivia/TriviaExtend.gd" id="1_ode5j"]
 [ext_resource type="Resource" uid="uid://b3akqy0sybreu" path="res://Questions/Question1.tres" id="2_111m6"]
 [ext_resource type="Resource" uid="uid://1o217vhrucf7" path="res://Questions/Question2.tres" id="3_t5sqy"]
 [ext_resource type="Resource" uid="uid://cb6m7clhcujio" path="res://Questions/Question3.tres" id="4_qo5cs"]
@@ -13,6 +13,8 @@
 [ext_resource type="Texture2D" uid="uid://bjuc07buipgma" path="res://Sprites/Heart_Dead.png" id="10_goexv"]
 [ext_resource type="Texture2D" uid="uid://bom7fv0vxnrga" path="res://Sprites/Heart_Active.webp" id="11_16a0w"]
 [ext_resource type="Animation" uid="uid://cswo4h88nhmci" path="res://Animations/Idle.res" id="11_eloj3"]
+[ext_resource type="LabelSettings" uid="uid://cehm53rxi8a62" path="res://Font/font_3.tres" id="13_wukra"]
+[ext_resource type="PackedScene" uid="uid://cstukqml3y23j" path="res://Questions Panel/answer_button.tscn" id="14_xopad"]
 
 [sub_resource type="Animation" id="Animation_mb25j"]
 length = 0.001
@@ -89,10 +91,165 @@ tracks/5/keys = {
 "values": [Color(1, 1, 1, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_wdutf"]
+resource_name = "on_damage_1"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HeartActive:self_modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.5, 0.6, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 2,
+"values": [Color(1, 1, 1, 1), Color(0.875782, 0.464863, 0.629639, 1), Color(1, 1, 1, 1), Color(0.875782, 0.464863, 0.629639, 1), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HeartActive:scale")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.5, 0.6, 1),
+"transitions": PackedFloat32Array(2, -2, -0.5, 0.5, 2),
+"update": 2,
+"values": [Vector2(0.193, 0.142), Vector2(0.284, 0.21), Vector2(0.193, 0.142), Vector2(0.284, 0.21), Vector2(0.193, 0.142)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("HeartActive2:scale")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.5, 0.6, 1),
+"transitions": PackedFloat32Array(2, -2, -0.5, 0.5, 2),
+"update": 2,
+"values": [Vector2(0.193, 0.142), Vector2(0.284, 0.21), Vector2(0.193, 0.142), Vector2(0.284, 0.21), Vector2(0.193, 0.142)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("HeartActive2:self_modulate")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.5, 0.6, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 2,
+"values": [Color(1, 1, 1, 1), Color(0.875782, 0.464863, 0.629639, 1), Color(1, 1, 1, 1), Color(0.875782, 0.464863, 0.629639, 1), Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("HeartActive3:self_modulate")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.5, 0.6, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 2,
+"values": [Color(1, 1, 1, 1), Color(0.875782, 0.464863, 0.629639, 1), Color(1, 1, 1, 1), Color(0.875782, 0.464863, 0.629639, 1), Color(1, 1, 1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("HeartActive3:scale")
+tracks/5/interp = 2
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.5, 0.6, 1),
+"transitions": PackedFloat32Array(2, -2, -0.5, 0.5, 2),
+"update": 2,
+"values": [Vector2(0.193, 0.142), Vector2(0.284, 0.21), Vector2(0.193, 0.142), Vector2(0.284, 0.21), Vector2(0.193, 0.142)]
+}
+
+[sub_resource type="Animation" id="Animation_nxlmm"]
+resource_name = "on_damage_3"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HeartActive:self_modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3, 0.4, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 2,
+"values": [Color(1, 1, 1, 1), Color(0.875782, 0.464863, 0.629639, 1), Color(1, 1, 1, 1), Color(0.875782, 0.464863, 0.629639, 1), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HeartActive:scale")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3, 0.4, 0.8),
+"transitions": PackedFloat32Array(2, -2, -0.5, 0.5, 2),
+"update": 2,
+"values": [Vector2(0.193, 0.142), Vector2(0.284, 0.21), Vector2(0.193, 0.142), Vector2(0.284, 0.21), Vector2(0.193, 0.142)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("HeartActive2:scale")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3, 0.4, 0.8),
+"transitions": PackedFloat32Array(2, -2, -0.5, 0.5, 2),
+"update": 2,
+"values": [Vector2(0.193, 0.142), Vector2(0.284, 0.21), Vector2(0.193, 0.142), Vector2(0.284, 0.21), Vector2(0.193, 0.142)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("HeartActive2:self_modulate")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3, 0.4, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 2,
+"values": [Color(1, 1, 1, 1), Color(0.875782, 0.464863, 0.629639, 1), Color(1, 1, 1, 1), Color(0.875782, 0.464863, 0.629639, 1), Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("HeartActive3:self_modulate")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3, 0.4, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 2,
+"values": [Color(1, 1, 1, 1), Color(0.875782, 0.464863, 0.629639, 1), Color(1, 1, 1, 1), Color(0.875782, 0.464863, 0.629639, 1), Color(1, 1, 1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("HeartActive3:scale")
+tracks/5/interp = 2
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3, 0.4, 0.8),
+"transitions": PackedFloat32Array(2, -2, -0.5, 0.5, 2),
+"update": 2,
+"values": [Vector2(0.193, 0.142), Vector2(0.284, 0.21), Vector2(0.193, 0.142), Vector2(0.284, 0.21), Vector2(0.193, 0.142)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_v7ey1"]
 _data = {
 "Idle": ExtResource("11_eloj3"),
-"RESET": SubResource("Animation_mb25j")
+"RESET": SubResource("Animation_mb25j"),
+"on_damage_1": SubResource("Animation_wdutf"),
+"on_damage_2": SubResource("Animation_nxlmm")
 }
 
 [sub_resource type="Animation" id="Animation_wtd2g"]
@@ -127,13 +284,7 @@ tracks/1/keys = {
 "values": [true]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_a5gt4"]
-_data = {
-"RESET": SubResource("Animation_wtd2g"),
-"take damage": SubResource("Animation_fe1un")
-}
-
-[sub_resource type="Animation" id="Animation_g2dbm"]
+[sub_resource type="Animation" id="Animation_gipuk"]
 resource_name = "take_damage_2"
 length = 1.3
 loop_mode = 1
@@ -145,15 +296,15 @@ tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.4, 0.7, 1, 1.3),
-"transitions": PackedFloat32Array(2, -2, -0.5, 0.5, 2),
+"transitions": PackedFloat32Array(2, -2, -0.5, 2, 2),
 "update": 2,
-"values": [Color(0.662745, 0.231373, 0.247059, 0), Color(0.682353, 0.239216, 0.254902, 0.156863), Color(0.662745, 0.231373, 0.247059, 0), Color(0.682353, 0.239216, 0.254902, 0.156863), Color(0.662745, 0.231373, 0.247059, 0)]
+"values": [Color(0.662745, 0.231373, 0.247059, 0), Color(0.682353, 0.239216, 0.254902, 0.0980392), Color(0.662745, 0.231373, 0.247059, 0), Color(0.682353, 0.239216, 0.254902, 0.0980392), Color(0.662745, 0.231373, 0.247059, 0)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/path = NodePath("HeartDead2:visible")
-tracks/1/interp = 1
+tracks/1/interp = 2
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
@@ -162,9 +313,38 @@ tracks/1/keys = {
 "values": [true]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_sqgsp"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_a5gt4"]
 _data = {
-"take_damage_2": SubResource("Animation_g2dbm")
+"RESET": SubResource("Animation_wtd2g"),
+"take damage": SubResource("Animation_fe1un"),
+"take_damage_2": SubResource("Animation_gipuk")
+}
+
+[sub_resource type="Animation" id="Animation_64spt"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HeartDead:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.219911]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HeartActive:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.219911]
 }
 
 [sub_resource type="Animation" id="Animation_4eag6"]
@@ -206,40 +386,7 @@ tracks/2/keys = {
 "values": [true, false]
 }
 
-[sub_resource type="Animation" id="Animation_64spt"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("HeartDead:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.219911]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("HeartActive:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.219911]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_eftd3"]
-_data = {
-"RESET": SubResource("Animation_64spt"),
-"heart_shake": SubResource("Animation_4eag6")
-}
-
-[sub_resource type="Animation" id="Animation_jj2xx"]
+[sub_resource type="Animation" id="Animation_ej3oe"]
 resource_name = "heart_shake_2"
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -278,28 +425,7 @@ tracks/2/keys = {
 "values": [true, false]
 }
 
-[sub_resource type="Animation" id="Animation_ykydf"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("HeartActive2:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_mjoyd"]
-_data = {
-"RESET": SubResource("Animation_ykydf"),
-"heart_shake_2": SubResource("Animation_jj2xx")
-}
-
-[sub_resource type="Animation" id="Animation_4qtq7"]
+[sub_resource type="Animation" id="Animation_chgii"]
 resource_name = "heart_shake_3"
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -338,9 +464,12 @@ tracks/2/keys = {
 "values": [true, false]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_qecte"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_eftd3"]
 _data = {
-"heart_shake_3": SubResource("Animation_4qtq7")
+"RESET": SubResource("Animation_64spt"),
+"heart_shake": SubResource("Animation_4eag6"),
+"heart_shake_2": SubResource("Animation_ej3oe"),
+"heart_shake_3": SubResource("Animation_chgii")
 }
 
 [sub_resource type="Animation" id="Animation_v83c5"]
@@ -371,7 +500,9 @@ _data = {
 
 [node name="Trivia" type="Node2D" node_paths=PackedStringArray("buttons", "canvas_layers", "sprites") groups=["trivia"]]
 texture_filter = 1
-script = ExtResource("1_b5c1u")
+script = ExtResource("1_ode5j")
+health = null
+questions_answered_correctly = null
 questions = Array[Resource("res://Questions/questions.gd")]([ExtResource("2_111m6"), ExtResource("3_t5sqy"), ExtResource("4_qo5cs"), ExtResource("5_7fw8e"), ExtResource("6_vgwve"), ExtResource("7_8igtf")])
 buttons = [NodePath("Questions Panel/QuestionsPanel/HBoxContainer/AnswerButton"), NodePath("Questions Panel/QuestionsPanel/HBoxContainer/AnswerButton2"), NodePath("Questions Panel/QuestionsPanel/HBoxContainer2/AnswerButton3"), NodePath("Questions Panel/QuestionsPanel/HBoxContainer2/AnswerButton4")]
 canvas_layers = [NodePath("Questions Panel"), NodePath("Game Over"), NodePath("Hearts")]
@@ -387,6 +518,11 @@ anchor_left = 0.863
 anchor_top = 0.847
 offset_left = 0.359985
 offset_top = 0.159973
+theme_type_variation = &"HeaderMedium"
+theme_override_font_sizes/font_size = 64
+
+[node name="QuestionField" parent="Questions Panel/QuestionsPanel/PanelContainer/Panel" index="1"]
+text = ""
 
 [node name="QuestionValue" parent="Questions Panel/QuestionsPanel/PanelContainer/Panel" index="3"]
 anchors_preset = 7
@@ -477,23 +613,72 @@ libraries = {
 
 [node name="AnimationPlayer3" type="AnimationPlayer" parent="Hearts"]
 libraries = {
-"": SubResource("AnimationLibrary_sqgsp")
-}
-
-[node name="AnimationPlayer5" type="AnimationPlayer" parent="Hearts"]
-libraries = {
 "": SubResource("AnimationLibrary_eftd3")
 }
 
-[node name="AnimationPlayer6" type="AnimationPlayer" parent="Hearts"]
-libraries = {
-"": SubResource("AnimationLibrary_mjoyd")
-}
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="AnimationPlayer7" type="AnimationPlayer" parent="Hearts"]
-libraries = {
-"": SubResource("AnimationLibrary_qecte")
-}
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer"]
+self_modulate = Color(0, 0, 0, 1)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="CanvasLayer/PanelContainer"]
+self_modulate = Color(0, 0, 0, 1)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/PanelContainer/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.255
+anchor_top = 0.12
+anchor_right = 0.745
+anchor_bottom = 0.26
+offset_left = -0.400024
+offset_top = 0.0999985
+offset_right = 0.399902
+offset_bottom = 0.299988
+grow_horizontal = 2
+grow_vertical = 2
+text = "Pact With The Devil "
+label_settings = ExtResource("13_wukra")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_left = 0.106
+anchor_top = 0.707
+anchor_right = 0.839
+anchor_bottom = 0.922
+offset_left = 0.320038
+offset_top = -0.0399475
+offset_right = -187.92
+offset_bottom = -30.84
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.25, 1.25)
+size_flags_horizontal = 6
+size_flags_vertical = 6
+theme_override_constants/separation = 300
+alignment = 1
+
+[node name="AnswerButton" parent="CanvasLayer/HBoxContainer" instance=ExtResource("14_xopad")]
+layout_mode = 2
+text = "Double Down"
+
+[node name="ColorRect" parent="CanvasLayer/HBoxContainer/AnswerButton" index="1"]
+visible = false
+
+[node name="AnswerButton2" parent="CanvasLayer/HBoxContainer" instance=ExtResource("14_xopad")]
+layout_mode = 2
+text = "Double Points"
+
+[node name="ColorRect" parent="CanvasLayer/HBoxContainer/AnswerButton2" index="1"]
+visible = false
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_left = -342.0
@@ -541,3 +726,5 @@ one_shot = true
 [editable path="Questions Panel/QuestionsPanel/HBoxContainer2/AnswerButton4"]
 [editable path="Game Over"]
 [editable path="Game Over/MarginContainer2/VBoxContainer/HBoxContainer/AnswerButton"]
+[editable path="CanvasLayer/HBoxContainer/AnswerButton"]
+[editable path="CanvasLayer/HBoxContainer/AnswerButton2"]

@@ -1,5 +1,6 @@
 class_name Trivia extends Node2D
 
+
 @export_category("Stats")
 @export_group("Stats")
 @export var health: int = 3
@@ -12,9 +13,9 @@ class_name Trivia extends Node2D
 @export var canvas_layers: Array[CanvasLayer]
 @export var sprites: Array[Sprite2D]
 
+
 var menu_selector: int = 0
 var current_question_index: int = 0
-
 var current_answer_index: int = 0
 var correct_answer_index: int = 0
 var menu_index: int = 0
@@ -37,11 +38,6 @@ var button_select_index: int = 0
 @onready var animation_player_2: AnimationPlayer = $Hearts/AnimationPlayer2
 @onready var animation_player_3: AnimationPlayer = $Hearts/AnimationPlayer3
 @onready var animation_player_4: AnimationPlayer = $AspectRatioContainer/AnimationPlayer4
-@onready var animation_player_5: AnimationPlayer = $Hearts/AnimationPlayer5
-@onready var animation_player_6: AnimationPlayer = $Hearts/AnimationPlayer6
-@onready var animation_player_7: AnimationPlayer = $Hearts/AnimationPlayer7
-
-
 @onready var question_number_label: Label = $"Questions Panel/QuestionsPanel/PanelContainer/Panel/QuestionNumber"
 @onready var question_value: Label = $"Questions Panel/QuestionsPanel/PanelContainer/Panel/QuestionValue"
 @onready var question_limit_index: int = questions.size()
@@ -52,16 +48,12 @@ func _on_timer_timeout() -> void:
 	life()
 	timertimertimertimer.start()
 
-
-
 func _ready() -> void:
 	animation_player.play("Idle")
 	animation_player_4.play("background")
-	score_label.text = str("0")
+	score_label.text = str("0") + " Souls"
 	_updateQuestion()
 	_updateAnswer()
-
-
 
 func _process(delta: float) -> void:
 	_updateQuestion_Timer()
@@ -74,10 +66,8 @@ func pressed(button_index: int):
 		heart_shake()
 		life()
 
-
 func _updateQuestion_Timer():
 	question_timer.text =  "%.2f" % timertimertimertimer.time_left
-
 
 func life():
 	health -= 1
@@ -95,14 +85,27 @@ func life():
 		if questions_answered_correctly <= question_limit_index:
 			questions_answered.text = "You answered: " + str(questions_answered_correctly) + " questions correctly"
 
+
+func color_rect_hide():
+	color_rect1.hide()
+	color_rect2.hide()
+	color_rect3.hide()
+	color_rect4.hide()
+	color_rect5.hide()
+
+func color_rect_show():
+	color_rect1.show()
+	color_rect2.show()
+	color_rect3.show()
+	color_rect4.show()
+
 func end_anims():
 	animation_player.stop()
 	animation_player_2.stop()
-	animation_player_3.stop()
 	animation_player_4.stop()
 
 func next_question():
-	score_label.text = str(questions[current_question_index].score)
+	score_label.text = str(questions[current_question_index].score) + " Souls"
 	questions_answered_correctly += 1
 	color_rect_show()
 	current_question_index += 1
@@ -111,15 +114,15 @@ func next_question():
 
 func heart_shake():
 	if health == 3:
-		animation_player_5.play("heart_shake")
+		animation_player_3.play("heart_shake")
+		animation_player.play("on_damage_1")
 		animation_player_2.play("take damage")
 	elif health == 2:
-		animation_player_2.stop()
-		animation_player_6.play("heart_shake_2")
-		animation_player_3.play("take_damage_2")
+		animation_player_3.play("heart_shake_2")
+		animation_player.play("on_damage_2")
+		animation_player_2.play("take_damage_2")
 	elif health == 1:
-		animation_player_7.play("heart_shake_3")
-
+		animation_player_3.play("heart_shake_3")
 
 func _updateQuestion():
 	timertimertimertimer.start()
@@ -133,8 +136,6 @@ func _updateQuestion():
 		question_number_label.text = "Question: " + str(current_question_index + 1)
 		question_value.text = "For " + str(questions[current_question_index].score) + " Souls"
 
-
-
 func _updateAnswer():
 	var index = 0
 	correct_answer_index = questions[current_question_index].correct_answer_index
@@ -144,7 +145,9 @@ func _updateAnswer():
 		_updateText(index, answer)
 		index += 1
 
-
+#hack this is required or the entire button appearing system below breaks
+func _button_alpha(index):
+	buttons[index].modulate.a = 0
 
 func _updateText(index, answer):#sets the button text to the answer found
 	buttons[index].text = answer
@@ -163,41 +166,15 @@ func _updateText(index, answer):#sets the button text to the answer found
 	buttons[3].modulate.a = 1.0
 	color_rect_hide()
 	timertimertimertimer.paused = false
-	
-
-func color_rect_hide():
-	color_rect1.hide()
-	color_rect2.hide()
-	color_rect3.hide()
-	color_rect4.hide()
-	color_rect5.hide()
-
-func color_rect_show():
-	color_rect1.show()
-	color_rect2.show()
-	color_rect3.show()
-	color_rect4.show()
-
-#hack this is required or the entire button appearing system breaks
-func _button_alpha(index):
-	buttons[index].modulate.a = 0
-	#buttons[index].hide()
-
 
 func _on_answer_button_pressed() -> void:
 	pressed(0)
 
-
-
 func _on_answer_button_2_pressed() -> void:
 	pressed(1)
 
-
-
 func _on_answer_button_3_pressed() -> void:
 	pressed(2)
-
-
 
 func _on_answer_button_4_pressed() -> void:
 	pressed(3)
