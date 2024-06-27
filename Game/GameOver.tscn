@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bcmk3714lc7tb"]
+[gd_scene load_steps=12 format=3 uid="uid://bcmk3714lc7tb"]
 
 [ext_resource type="Texture2D" uid="uid://bb8po0vxe4vka" path="res://Sprites/Game_Background.webp" id="1_5f0n0"]
 [ext_resource type="Script" path="res://Game/GameOver.gd" id="1_o23nv"]
@@ -7,9 +7,19 @@
 [ext_resource type="LabelSettings" uid="uid://swopcct6qg1x" path="res://Questions Panel/panel.tres" id="4_bpawd"]
 [ext_resource type="PackedScene" uid="uid://cstukqml3y23j" path="res://Questions Panel/answer_button.tscn" id="6_382bk"]
 [ext_resource type="FontFile" uid="uid://cyaetsiyt6peh" path="res://Font/Georgia-zEPX.otf" id="7_8dlw4"]
+[ext_resource type="LabelSettings" uid="uid://cehm53rxi8a62" path="res://Font/font_3.tres" id="8_kuw6q"]
+[ext_resource type="LabelSettings" uid="uid://fi5b1nr40ck2" path="res://Font/font_2.tres" id="9_30flk"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_emo7l"]
 bg_color = Color(0.6, 0.6, 0.6, 0.0588235)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 0, 0.0901961, 0.45098)
+border_blend = true
+corner_detail = 14
+shadow_color = Color(0, 0, 0, 0.505882)
 shadow_size = 1
 anti_aliasing_size = 4.0
 
@@ -55,7 +65,7 @@ layout_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/CenterContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_constants/margin_bottom = 200
+theme_override_constants/margin_bottom = 450
 
 [node name="PanelContainer" type="PanelContainer" parent="MarginContainer/CenterContainer/VBoxContainer/MarginContainer"]
 layout_mode = 2
@@ -65,21 +75,19 @@ theme_override_styles/panel = ExtResource("3_ws47h")
 [node name="Panel" type="Panel" parent="MarginContainer/CenterContainer/VBoxContainer/MarginContainer/PanelContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="MarginContainer/CenterContainer/VBoxContainer/MarginContainer/PanelContainer/Panel"]
+[node name="SoulClaimed" type="Label" parent="MarginContainer/CenterContainer/VBoxContainer/MarginContainer/PanelContainer/Panel"]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
+anchors_preset = -1
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -105.0
-offset_top = -19.0
-offset_right = 60.0
-offset_bottom = 19.0
+offset_left = -250.0
+offset_top = -20.0
+offset_right = 270.0
+offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_emo7l")
-text = "YOU DIED!"
+text = "YOUR SOUL HAS BEEN CLAIMED!"
 label_settings = ExtResource("4_bpawd")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -91,10 +99,10 @@ anchor_left = 0.399
 anchor_top = 0.708
 anchor_right = 0.575
 anchor_bottom = 0.833
-offset_left = 0.279968
-offset_top = 0.23999
-offset_right = -6.10352e-05
-offset_bottom = 0.239929
+offset_left = -258.72
+offset_top = 90.24
+offset_right = 251.0
+offset_bottom = 90.2399
 grow_horizontal = 2
 grow_vertical = 0
 metadata/_edit_use_anchors_ = true
@@ -107,25 +115,33 @@ alignment = 1
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 3
+theme_override_constants/separation = 30
 alignment = 1
 
 [node name="AnswerButton" parent="MarginContainer2/VBoxContainer/HBoxContainer" instance=ExtResource("6_382bk")]
 layout_mode = 2
 
+[node name="AnswerButton2" parent="MarginContainer2/VBoxContainer/HBoxContainer" instance=ExtResource("6_382bk")]
+layout_mode = 2
+
+[node name="AnswerButton3" parent="MarginContainer2/VBoxContainer/HBoxContainer" instance=ExtResource("6_382bk")]
+layout_mode = 2
+
 [node name="GameOverScore" type="Label" parent="."]
 anchors_preset = -1
-anchor_left = 0.859156
-anchor_top = 0.915056
-anchor_right = 0.994
-anchor_bottom = 0.989
-offset_left = 0.279907
-offset_top = 0.159973
-offset_right = -0.320068
-offset_bottom = -0.0800171
+anchor_left = 0.781
+anchor_top = 0.053
+anchor_right = 0.965
+anchor_bottom = 0.147
+offset_left = 50.3199
+offset_top = -0.160004
+offset_right = -0.200073
+offset_bottom = 0.160004
 grow_horizontal = 0
 grow_vertical = 0
 theme_override_fonts/font = ExtResource("7_8dlw4")
 theme_override_font_sizes/font_size = 32
+label_settings = ExtResource("8_kuw6q")
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
@@ -133,18 +149,20 @@ metadata/_edit_use_anchors_ = true
 [node name="QuestionsAnswered" type="Label" parent="."]
 texture_filter = 1
 anchors_preset = -1
-anchor_left = 0.687
-anchor_top = 0.737
-anchor_right = 0.968
-anchor_bottom = 0.79
-offset_left = 0.639954
-offset_top = 0.359985
-offset_right = -0.0400391
-offset_bottom = 0.200073
+anchor_left = 0.014
+anchor_top = 0.04
+anchor_right = 0.295
+anchor_bottom = 0.093
+offset_left = 0.0799999
+offset_top = 0.199999
+offset_right = -0.600037
+offset_bottom = 0.040062
 theme = SubResource("Theme_gtcsw")
 theme_override_font_sizes/font_size = 32
-text = "You answered 1 questions correctly"
+label_settings = ExtResource("9_30flk")
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [connection signal="pressed" from="MarginContainer2/VBoxContainer/HBoxContainer/AnswerButton" to="." method="_on_answer_button_pressed"]
+[connection signal="pressed" from="MarginContainer2/VBoxContainer/HBoxContainer/AnswerButton2" to="." method="_on_answer_button_2_pressed"]
+[connection signal="pressed" from="MarginContainer2/VBoxContainer/HBoxContainer/AnswerButton3" to="." method="_on_answer_button_3_pressed"]

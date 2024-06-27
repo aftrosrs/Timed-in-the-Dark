@@ -5,6 +5,7 @@
 [resource]
 font = ExtResource("1_8lcmi")
 font_size = 24
-outline_size = 5
-outline_color = Color(0, 0, 0, 1)
-shadow_color = Color(0, 0, 0, 0.960784)
+outline_size = 1
+outline_color = Color(1, 0, 0, 0.564706)
+shadow_size = 3
+shadow_color = Color(0, 0, 0, 1)

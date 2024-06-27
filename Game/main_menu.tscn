@@ -1,0 +1,62 @@
+[gd_scene load_steps=5 format=3 uid="uid://c04fhudmh8rjq"]
+
+[ext_resource type="Texture2D" uid="uid://bb8po0vxe4vka" path="res://Sprites/Game_Background.webp" id="1_5u2yv"]
+[ext_resource type="Script" path="res://Game/main_menu.gd" id="1_h2boh"]
+[ext_resource type="PackedScene" uid="uid://cstukqml3y23j" path="res://Questions Panel/answer_button.tscn" id="2_dyv6a"]
+[ext_resource type="AudioStream" uid="uid://bu5mpe7r0ox5j" path="res://Menu_Music Timed in the Dark.wav" id="4_oj0v8"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_h2boh")
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_oj0v8")
+volume_db = -15.0
+pitch_scale = 0.8
+autoplay = true
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = -34.0
+offset_top = -24.0
+offset_right = 1316.0
+offset_bottom = 743.0
+grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+texture = ExtResource("1_5u2yv")
+
+[node name="AnswerButton" parent="." instance=ExtResource("2_dyv6a")]
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 34.0
+offset_top = 492.0
+offset_right = 259.0
+offset_bottom = 581.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="ColorRect" parent="AnswerButton" index="1"]
+visible = false
+
+[node name="AnswerButton2" parent="." instance=ExtResource("2_dyv6a")]
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 22.0
+offset_top = 100.0
+offset_right = 247.0
+offset_bottom = 176.0
+grow_horizontal = 1
+grow_vertical = 1
+theme_override_constants/outline_size = 1
+
+[node name="ColorRect" parent="AnswerButton2" index="1"]
+visible = false
+
+[connection signal="pressed" from="AnswerButton" to="." method="_on_answer_button_pressed"]
+[connection signal="pressed" from="AnswerButton2" to="." method="_on_answer_button_2_pressed"]
+
+[editable path="AnswerButton"]
+[editable path="AnswerButton2"]

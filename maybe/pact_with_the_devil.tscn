@@ -1,0 +1,87 @@
+[gd_scene load_steps=3 format=3 uid="uid://dyjs6j12qblro"]
+
+[ext_resource type="LabelSettings" uid="uid://cehm53rxi8a62" path="res://Font/font_3.tres" id="1_4siej"]
+[ext_resource type="PackedScene" uid="uid://cstukqml3y23j" path="res://Questions Panel/answer_button.tscn" id="2_8f3j7"]
+
+[node name="PactWithTheDevil" type="CanvasLayer"]
+process_mode = 3
+visible = false
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+self_modulate = Color(0, 0, 0, 1)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="PanelContainer"]
+self_modulate = Color(0, 0, 0, 1)
+layout_mode = 2
+
+[node name="PactWithTheDevil" type="Label" parent="PanelContainer/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.255
+anchor_top = 0.12
+anchor_right = 0.745
+anchor_bottom = 0.26
+offset_left = -16.4
+offset_top = 0.0999985
+offset_right = -15.6001
+offset_bottom = 0.299988
+grow_horizontal = 2
+grow_vertical = 2
+text = "Pact With The Devil "
+label_settings = ExtResource("1_4siej")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+anchors_preset = -1
+anchor_left = 0.018
+anchor_top = 0.707
+anchor_right = 0.971
+anchor_bottom = 0.922
+offset_left = 112.96
+offset_top = -0.0399475
+offset_right = -356.88
+offset_bottom = -30.84
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.25, 1.25)
+size_flags_horizontal = 6
+size_flags_vertical = 6
+theme_override_constants/separation = 150
+alignment = 1
+
+[node name="All In" parent="HBoxContainer" instance=ExtResource("2_8f3j7")]
+layout_mode = 2
+mouse_filter = 1
+text = "All In"
+
+[node name="ColorRect" parent="HBoxContainer/All In" index="1"]
+visible = false
+
+[node name="Double Down" parent="HBoxContainer" instance=ExtResource("2_8f3j7")]
+layout_mode = 2
+toggle_mode = true
+text = "Double Down"
+
+[node name="ColorRect" parent="HBoxContainer/Double Down" index="1"]
+visible = false
+
+[node name="Half Time" parent="HBoxContainer" instance=ExtResource("2_8f3j7")]
+layout_mode = 2
+text = "Half Time"
+
+[node name="ColorRect" parent="HBoxContainer/Half Time" index="1"]
+visible = false
+
+[node name="Half Time Timer" type="Timer" parent="HBoxContainer/Half Time"]
+wait_time = 15.0
+one_shot = true
+
+[editable path="HBoxContainer/All In"]
+[editable path="HBoxContainer/Double Down"]
+[editable path="HBoxContainer/Half Time"]

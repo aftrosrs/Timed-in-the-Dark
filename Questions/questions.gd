@@ -4,7 +4,7 @@ class_name Question extends Resource
 @export var question: String = ""
 @export var answers: Array[String]
 @export var correct_answer_index: int = 0
-@export var score: int = 0
+@export var score: float = 0.0
 
 #The lore behind this line is:
 #I was created to exist for naught,
