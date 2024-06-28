@@ -1,6 +1,9 @@
-[gd_resource type="LabelSettings" format=3 uid="uid://fi5b1nr40ck2"]
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://fi5b1nr40ck2"]
+
+[ext_resource type="FontFile" uid="uid://cyaetsiyt6peh" path="res://Font/Georgia-zEPX.otf" id="1_n3qad"]
 
 [resource]
+font = ExtResource("1_n3qad")
 font_size = 30
 outline_size = 5
 outline_color = Color(0, 0, 0, 1)

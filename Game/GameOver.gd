@@ -1,6 +1,7 @@
 extends CanvasLayer
 
 
+
 func _ready() -> void:
 	$MarginContainer2/VBoxContainer/HBoxContainer/AnswerButton3.text = String("Main Menu")
 	$MarginContainer2/VBoxContainer/HBoxContainer/AnswerButton.text = String("Restart Game")
@@ -11,7 +12,6 @@ func _ready() -> void:
 
 func _on_answer_button_pressed() -> void:
 	get_tree().reload_current_scene()
-
 
 func _on_answer_button_2_pressed() -> void:
 	get_tree().quit()

@@ -2,8 +2,8 @@ extends Node2D
 @onready var music: AudioStreamPlayer = $Music
 func _ready() -> void:
 	music.play(0.0)
-	$AnswerButton2.text = "Start Game"
-	$AnswerButton.text = "Exit Game"
+	$StartGame.text = "Start Game"
+	$ExitGame.text = "Exit Game"
 
 
 func _on_answer_button_pressed() -> void:

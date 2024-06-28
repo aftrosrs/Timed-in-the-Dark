@@ -27,41 +27,13 @@ size_flags_horizontal = 6
 size_flags_vertical = 6
 texture = ExtResource("1_5u2yv")
 
-[node name="AnswerButton" parent="." instance=ExtResource("2_dyv6a")]
-anchors_preset = 0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_left = 117.0
-offset_top = 304.0
-offset_right = 418.0
-offset_bottom = 451.0
-grow_horizontal = 1
-grow_vertical = 1
-
-[node name="ColorRect" parent="AnswerButton" index="1"]
-visible = false
-
-[node name="AnswerButton2" parent="." instance=ExtResource("2_dyv6a")]
-anchors_preset = 0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_left = 862.0
-offset_top = 296.0
-offset_right = 1163.0
-offset_bottom = 442.0
-grow_horizontal = 1
-grow_vertical = 1
-theme_override_constants/outline_size = 1
-
-[node name="ColorRect" parent="AnswerButton2" index="1"]
-visible = false
-
 [node name="PanelContainer" type="PanelContainer" parent="."]
 self_modulate = Color(1, 1, 1, 0)
 offset_left = 356.0
 offset_top = 91.0
 offset_right = 878.0
 offset_bottom = 472.0
+metadata/_edit_group_ = true
 
 [node name="Panel" type="Panel" parent="PanelContainer"]
 self_modulate = Color(1, 1, 1, 0)
@@ -74,21 +46,21 @@ anchor_left = -0.421
 anchor_top = -0.312
 anchor_right = 1.433
 anchor_bottom = 0.218
-offset_left = -0.237976
+offset_left = -11.238
 offset_top = -0.127998
-offset_right = 1.97394
+offset_right = -9.02606
 offset_bottom = -0.0580063
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/default_color = Color(0.962237, 0.803898, 0.800377, 1)
+theme_override_colors/default_color = Color(1, 1, 1, 1)
 theme_override_colors/font_shadow_color = Color(0.516557, 0.125011, 0.110425, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_outline_size = 11
 theme_override_constants/outline_size = 8
 bbcode_enabled = true
-text = "[font_size={64}[outline_color={code/name}][outline_size={5}][wave][b][font=Font/BaroqueTextJF Regular.ttf][center]
+text = "[font_size={64}[outline_color={code/name}][outline_size={8}][pulse][wave][b][font=Font/BaroqueTextJF Regular.ttf][center]
 Timed In The Dark 
-[/center][/font][/b][/wave][outline_size={2}]"
+[/center][/font][/b][/wave][/pulse][/outline_size]"
 fit_content = true
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="PanelContainer/Panel"]
@@ -107,44 +79,74 @@ grow_vertical = 2
 theme_override_colors/default_color = Color(1, 1, 1, 1)
 theme_override_colors/font_shadow_color = Color(0.516557, 0.125011, 0.110425, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_outline_size = 11
-theme_override_constants/outline_size = 8
+theme_override_constants/shadow_outline_size = 13
+theme_override_constants/outline_size = 12
 bbcode_enabled = true
-text = "[font_size={32}[outline_color={code/name}][outline_size={9}][wave][b][font=Font/Georgia-zEPX.otf][center]
-How Many Souls Will You Collect?
-[/center][/font][/b][/wave][outline_size={2}]"
+text = "[font_size={32}[outline_color={code/name}][outline_size={9}][pulse][wave][b][font=Font/Georgia-zEPX.otf][center]
+How  Many  Souls  Shall You  Collect?
+[/center][/font][/b][/wave][/pulse][/outline_size]"
 fit_content = true
 tab_size = 24
 
 [node name="RichTextLabel3" type="RichTextLabel" parent="PanelContainer/Panel"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = -0.678
-anchor_top = 1.218
-anchor_right = -0.073
-anchor_bottom = 1.601
-offset_left = -0.0839844
-offset_top = -0.0580444
-offset_right = 0.106003
-offset_bottom = 0.0189819
+anchor_left = -0.663
+anchor_top = 1.244
+anchor_right = -0.063
+anchor_bottom = 1.633
+offset_left = 0.0860291
+offset_top = 0.0359802
+offset_right = -0.113998
+offset_bottom = -0.173035
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/default_color = Color(1, 1, 1, 1)
 theme_override_colors/font_shadow_color = Color(0.516557, 0.125011, 0.110425, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_outline_size = 8
-theme_override_constants/outline_size = 23
+theme_override_constants/shadow_outline_size = 12
 bbcode_enabled = true
-text = "[font_size={35tornado}[outline_color={code/name}][outline_size={7}][tornado][b][font=Font/Georgia-zEPX.otf][center]
+text = "[font_size={35}{tornado}[outline_color={code/name}][outline_size={9}][pulse][tornado][b][font=Font/Georgia-zEPX.otf][center]
 Artist: Amethyst Morris
-
 Developer: ThaAftrPartie
-[/center][/font][/b][/tornado][outline_size={2}]"
+[/center][/font][/b][/tornado][/pulse][/outline_size]"
 fit_content = true
+autowrap_mode = 0
 tab_size = 24
 
-[connection signal="pressed" from="AnswerButton" to="." method="_on_answer_button_pressed"]
-[connection signal="pressed" from="AnswerButton2" to="." method="_on_answer_button_2_pressed"]
+[node name="ExitGame" parent="." instance=ExtResource("2_dyv6a")]
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 447.0
+offset_top = 473.0
+offset_right = 748.0
+offset_bottom = 620.0
+grow_horizontal = 1
+grow_vertical = 1
+metadata/_edit_group_ = true
 
-[editable path="AnswerButton"]
-[editable path="AnswerButton2"]
+[node name="ColorRect" parent="ExitGame" index="1"]
+visible = false
+
+[node name="StartGame" parent="." instance=ExtResource("2_dyv6a")]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+offset_left = 447.0
+offset_top = 197.0
+offset_right = 748.0
+offset_bottom = 343.0
+grow_vertical = 0
+theme_override_constants/outline_size = 1
+metadata/_edit_group_ = true
+
+[node name="ColorRect" parent="StartGame" index="1"]
+visible = false
+
+[connection signal="pressed" from="ExitGame" to="." method="_on_answer_button_pressed"]
+[connection signal="pressed" from="StartGame" to="." method="_on_answer_button_2_pressed"]
+
+[editable path="ExitGame"]
+[editable path="StartGame"]

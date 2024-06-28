@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://dj8ytedkqox1h"]
+[gd_scene load_steps=33 format=3 uid="uid://dj8ytedkqox1h"]
 
 [ext_resource type="Script" path="res://Game/Trivia/trivia.gd" id="1_ect1t"]
 [ext_resource type="Resource" uid="uid://b3akqy0sybreu" path="res://Questions/Question1.tres" id="2_0rq66"]
@@ -15,6 +15,7 @@
 [ext_resource type="Animation" uid="uid://cswo4h88nhmci" path="res://Animations/Idle.res" id="11_eloj3"]
 [ext_resource type="AudioStream" uid="uid://bnfo1cn55oju0" path="res://Audio/Heartbeat.wav" id="13_sx8rb"]
 [ext_resource type="AudioStream" uid="uid://bu5mpe7r0ox5j" path="res://Audio/Menu_Music Timed in the Dark.wav" id="14_io10y"]
+[ext_resource type="PackedScene" uid="uid://uu1u05jv4n4" path="res://Game/survive_state.tscn" id="14_tnkya"]
 
 [sub_resource type="Animation" id="Animation_mb25j"]
 length = 0.001
@@ -173,10 +174,10 @@ tracks/6/path = NodePath("../Node/Heartbeat:pitch_scale")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
-"times": PackedFloat32Array(-0.3, 0),
-"transitions": PackedFloat32Array(2, 0.5),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(0.5),
 "update": 0,
-"values": [1.1, 1.1]
+"values": [1.1]
 }
 tracks/7/type = "audio"
 tracks/7/imported = false
@@ -193,6 +194,18 @@ tracks/7/keys = {
 "times": PackedFloat32Array(0.2)
 }
 tracks/7/use_blend = true
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("../Node/Music:pitch_scale")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(2),
+"update": 0,
+"values": [0.9]
+}
 
 [sub_resource type="Animation" id="Animation_nxlmm"]
 resource_name = "on_damage_3"
@@ -297,6 +310,18 @@ tracks/7/keys = {
 "times": PackedFloat32Array(0.1)
 }
 tracks/7/use_blend = true
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("../Node/Music:pitch_scale")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(2),
+"update": 0,
+"values": [1.0]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_v7ey1"]
 _data = {
@@ -558,7 +583,7 @@ texture_filter = 1
 script = ExtResource("1_ect1t")
 questions = Array[Resource("res://Questions/questions.gd")]([ExtResource("2_0rq66"), ExtResource("3_xx0qx"), ExtResource("4_j46bw"), ExtResource("5_f16pw"), ExtResource("6_avlkk"), ExtResource("7_oe1gu")])
 buttons = [NodePath("Questions Panel/QuestionsPanel/HBoxContainer/AnswerButton"), NodePath("Questions Panel/QuestionsPanel/HBoxContainer/AnswerButton2"), NodePath("Questions Panel/QuestionsPanel/HBoxContainer2/AnswerButton3"), NodePath("Questions Panel/QuestionsPanel/HBoxContainer2/AnswerButton4")]
-canvas_layers = [NodePath("Questions Panel"), NodePath("Game Over"), NodePath("Hearts"), null]
+canvas_layers = [NodePath("Questions Panel"), NodePath("Game Over"), NodePath("Hearts"), NodePath("SurviveState")]
 sprites = [NodePath("Hearts/HeartActive"), NodePath("Hearts/HeartActive2"), NodePath("Hearts/HeartActive3")]
 timers = [NodePath("Timer")]
 
@@ -608,19 +633,6 @@ offset_bottom = 551.0
 grow_horizontal = 2
 grow_vertical = 0
 text = ""
-
-[node name="Game Over" parent="." instance=ExtResource("7_7dbhn")]
-visible = false
-
-[node name="QuestionsAnswered" parent="Game Over" index="5"]
-anchor_left = 0.678
-anchor_top = 0.812
-anchor_right = 0.951
-anchor_bottom = 0.854
-offset_left = 0.159973
-offset_right = -0.280029
-offset_bottom = 0.119995
-metadata/_edit_use_anchors_ = true
 
 [node name="Hearts" type="CanvasLayer" parent="."]
 
@@ -686,6 +698,22 @@ libraries = {
 "": SubResource("AnimationLibrary_eftd3")
 }
 
+[node name="Game Over" parent="." instance=ExtResource("7_7dbhn")]
+visible = false
+
+[node name="QuestionsAnswered" parent="Game Over" index="5"]
+anchor_left = 0.678
+anchor_top = 0.812
+anchor_right = 0.951
+anchor_bottom = 0.854
+offset_left = 0.159973
+offset_right = -0.280029
+offset_bottom = 0.119995
+metadata/_edit_use_anchors_ = true
+
+[node name="SurviveState" parent="." instance=ExtResource("14_tnkya")]
+visible = false
+
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_left = -342.0
 offset_top = -635.0
@@ -703,8 +731,8 @@ grow_vertical = 2
 
 [node name="GameBackground" type="Sprite2D" parent="AspectRatioContainer"]
 self_modulate = Color(0.683077, 0.683077, 0.683077, 1)
-position = Vector2(650.357, 364)
-scale = Vector2(1.51101, 1.53033)
+position = Vector2(663, 359)
+scale = Vector2(1.59151, 1.57143)
 texture = ExtResource("7_ygn5t")
 
 [node name="AnimationPlayer4" type="AnimationPlayer" parent="AspectRatioContainer"]
@@ -723,11 +751,12 @@ one_shot = true
 [node name="Node" type="Node" parent="."]
 
 [node name="Heartbeat" type="AudioStreamPlayer" parent="Node"]
-volume_db = -24.952
+volume_db = -35.0
+pitch_scale = 1.2
 
 [node name="Music" type="AudioStreamPlayer" parent="Node"]
 stream = ExtResource("14_io10y")
-volume_db = -20.0
+volume_db = -25.743
 pitch_scale = 0.8
 autoplay = true
 
@@ -743,4 +772,7 @@ autoplay = true
 [editable path="Questions Panel/QuestionsPanel/HBoxContainer2/AnswerButton3"]
 [editable path="Questions Panel/QuestionsPanel/HBoxContainer2/AnswerButton4"]
 [editable path="Game Over"]
-[editable path="Game Over/MarginContainer2/VBoxContainer/HBoxContainer/AnswerButton"]
+[editable path="Game Over/MarginContainer2/VBoxContainer/AnswerButton"]
+[editable path="Game Over/MarginContainer2/VBoxContainer/AnswerButton3"]
+[editable path="Game Over/MarginContainer2/VBoxContainer/AnswerButton2"]
+[editable path="SurviveState"]

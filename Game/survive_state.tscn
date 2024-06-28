@@ -1,0 +1,136 @@
+[gd_scene load_steps=6 format=3 uid="uid://uu1u05jv4n4"]
+
+[ext_resource type="Texture2D" uid="uid://bb8po0vxe4vka" path="res://Sprites/Game_Background.webp" id="1_3s1q3"]
+[ext_resource type="Script" path="res://Game/survive_state.gd" id="1_d2akm"]
+[ext_resource type="LabelSettings" uid="uid://cehm53rxi8a62" path="res://Font/font_3.tres" id="2_kk61j"]
+[ext_resource type="LabelSettings" uid="uid://fi5b1nr40ck2" path="res://Font/font_2.tres" id="3_dlf5o"]
+[ext_resource type="PackedScene" uid="uid://cstukqml3y23j" path="res://Questions Panel/answer_button.tscn" id="4_hee1s"]
+
+[node name="SurviveState" type="CanvasLayer"]
+script = ExtResource("1_d2akm")
+
+[node name="GameBackground" type="Sprite2D" parent="."]
+self_modulate = Color(0.521141, 0.521141, 0.521141, 1)
+position = Vector2(640.5, 360.75)
+scale = Vector2(1.47052, 1.49609)
+texture = ExtResource("1_3s1q3")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="PanelContainer"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="PanelContainer/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.279
+anchor_top = 0.139
+anchor_right = 0.67
+anchor_bottom = 0.278
+offset_left = -0.120026
+offset_top = -0.0800095
+offset_right = -0.600037
+offset_bottom = -0.160019
+grow_horizontal = 2
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0.371158, 0.0140305, 0.0517406, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 3
+theme_override_constants/outline_size = 39
+bbcode_enabled = true
+text = "[font_size={30}[outline_color={code/name}][outline_size={5}][pulse][wave][b][font=Font/BaroqueTextJF Regular.ttf][center]
+Y O U    S U R V I V E D!
+[/center][/font][/b][/wave][/pulse][/outline_size]"
+tab_size = 24
+metadata/_edit_use_anchors_ = true
+
+[node name="Final Score" type="Label" parent="PanelContainer/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.827
+anchor_top = 0.021
+anchor_right = 0.99
+anchor_bottom = 0.099
+offset_left = -0.560059
+offset_top = -0.120001
+offset_right = -0.200073
+offset_bottom = -0.280006
+label_settings = ExtResource("2_kk61j")
+
+[node name="Answered All Correctly" type="Label" parent="PanelContainer/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.011
+anchor_top = 0.021
+anchor_right = 0.311
+anchor_bottom = 0.094
+offset_left = -0.0800009
+offset_top = -3.12
+offset_right = -0.0800171
+offset_bottom = 0.32
+text = "You answered All Questions Correctly!"
+label_settings = ExtResource("3_dlf5o")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnswerButton" parent="PanelContainer/Panel" instance=ExtResource("4_hee1s")]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 2
+anchors_preset = 0
+anchor_left = 0.394
+anchor_top = 0.33
+anchor_right = 0.573
+anchor_bottom = 0.469
+offset_left = -0.320038
+offset_top = 12.4
+offset_right = -0.440002
+offset_bottom = -12.68
+
+[node name="ColorRect" parent="PanelContainer/Panel/AnswerButton" index="1"]
+visible = false
+
+[node name="AnswerButton2" parent="PanelContainer/Panel" instance=ExtResource("4_hee1s")]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 2
+anchors_preset = 0
+anchor_left = 0.394
+anchor_top = 0.536
+anchor_right = 0.573
+anchor_bottom = 0.675
+offset_left = -0.320038
+offset_top = 0.0799866
+offset_right = -0.440002
+
+[node name="ColorRect" parent="PanelContainer/Panel/AnswerButton2" index="1"]
+visible = false
+
+[node name="AnswerButton3" parent="PanelContainer/Panel" instance=ExtResource("4_hee1s")]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 2
+anchors_preset = 0
+anchor_left = 0.394
+anchor_top = 0.754
+anchor_right = 0.573
+anchor_bottom = 0.893
+offset_left = -0.320038
+offset_top = 0.119995
+offset_right = -0.440002
+offset_bottom = 0.039978
+
+[node name="ColorRect" parent="PanelContainer/Panel/AnswerButton3" index="1"]
+visible = false
+
+[connection signal="pressed" from="PanelContainer/Panel/AnswerButton" to="." method="_on_answer_button_pressed"]
+[connection signal="pressed" from="PanelContainer/Panel/AnswerButton2" to="." method="_on_answer_button_2_pressed"]
+[connection signal="pressed" from="PanelContainer/Panel/AnswerButton3" to="." method="_on_answer_button_3_pressed"]
+
+[editable path="PanelContainer/Panel/AnswerButton"]
+[editable path="PanelContainer/Panel/AnswerButton2"]
+[editable path="PanelContainer/Panel/AnswerButton3"]

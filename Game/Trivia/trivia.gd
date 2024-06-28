@@ -34,6 +34,10 @@ var button_select_index: int = 0
 @onready var color_rect3: ColorRect = $"Questions Panel/QuestionsPanel/HBoxContainer2/AnswerButton3/ColorRect"
 @onready var color_rect4: ColorRect = $"Questions Panel/QuestionsPanel/HBoxContainer2/AnswerButton4/ColorRect"
 @onready var color_rect5: ColorRect = $"Game Over/MarginContainer2/VBoxContainer/HBoxContainer/AnswerButton/ColorRect"
+@onready var color_rect6: ColorRect = $"Game Over/MarginContainer2/VBoxContainer/HBoxContainer/AnswerButton2/ColorRect"
+@onready var color_rect7: ColorRect = $"Game Over/MarginContainer2/VBoxContainer/HBoxContainer/AnswerButton3/ColorRect"
+
+
 @onready var animation_player: AnimationPlayer = $Hearts/AnimationPlayer
 @onready var animation_player_2: AnimationPlayer = $Hearts/AnimationPlayer2
 @onready var animation_player_3: AnimationPlayer = $Hearts/AnimationPlayer3
@@ -47,6 +51,7 @@ var button_select_index: int = 0
 @onready var question_value: Label = $"Questions Panel/QuestionsPanel/PanelContainer/Panel/QuestionValue"
 @onready var question_field: Label = $"Questions Panel/QuestionsPanel/PanelContainer/Panel/QuestionField"
 @onready var question_timer: Label = $"Questions Panel/QuestionsPanel/Question Timer"
+@onready var final_score: Label = $"PanelContainer/Panel/Final Score"
 @onready var music: AudioStreamPlayer = $Node/Music
 
 
@@ -173,11 +178,9 @@ func life():
 		canvas_layers[2].hide()
 		canvas_layers[0].hide()
 		color_rect_hide()
-		game_over_score.text = score_label.text + " Claimed"
+		game_over_score.text = "Claimed " + score_label.text + " Souls"
 		if questions_answered_correctly <= question_limit_index:
 			questions_answered.text = "You answered: " + str(questions_answered_correctly) + " questions correctly"
-
-
 
 func next_question():
 	reset_button_process_mode()
@@ -194,7 +197,11 @@ func _updateQuestion():
 	for question in questions:
 		if current_question_index > questions.size() - 1:
 			current_question_index = 0
-			break#hack replace this line with survive condition.
+			canvas_layers[3].show()
+			end_anims()
+			canvas_layers[2].hide()
+			canvas_layers[0].hide()
+			final_score.text = String("Claimed ") + score_label.text + " Souls"
 		question_field.text = questions[current_question_index].question
 		question_number.text = "Question: " + str(current_question_index + 1)
 		question_value.text = "For " + str(questions[current_question_index].score) + " Souls"
@@ -236,12 +243,16 @@ func color_rect_hide():
 	color_rect3.hide()
 	color_rect4.hide()
 	color_rect5.hide()
+	color_rect6.hide()
+	color_rect7.hide()
 
 func color_rect_show():
 	color_rect1.show()
 	color_rect2.show()
 	color_rect3.show()
 	color_rect4.show()
+	color_rect6.hide()
+	color_rect7.hide()
 
 func end_anims():
 	animation_player.stop()

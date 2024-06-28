@@ -25,6 +25,7 @@ scale = Vector2(50, 50)
 color = Color(0, 0, 0, 1)
 
 [node name="TextureRect" type="TextureRect" parent="."]
+self_modulate = Color(0.537011, 0.537011, 0.537011, 1)
 anchors_preset = -1
 anchor_right = 1.05
 anchor_bottom = 1.05
@@ -82,36 +83,42 @@ metadata/_edit_use_anchors_ = true
 [node name="MarginContainer2" type="MarginContainer" parent="."]
 anchors_preset = -1
 anchor_left = 0.399
-anchor_top = 0.708
-anchor_right = 0.575
-anchor_bottom = 0.833
-offset_left = -258.72
-offset_top = 90.24
-offset_right = 251.0
-offset_bottom = 90.2399
+anchor_top = 0.289
+anchor_right = 0.595
+anchor_bottom = 0.861
+offset_left = 0.279968
+offset_top = -0.0800018
+offset_right = 0.399963
+offset_bottom = 0.0799561
 grow_horizontal = 2
 grow_vertical = 0
 metadata/_edit_use_anchors_ = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer2"]
 layout_mode = 2
+theme_override_constants/separation = 50
 alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer2/VBoxContainer"]
+[node name="AnswerButton" parent="MarginContainer2/VBoxContainer" instance=ExtResource("6_382bk")]
 layout_mode = 2
-size_flags_horizontal = 4
 size_flags_vertical = 3
-theme_override_constants/separation = 30
-alignment = 1
 
-[node name="AnswerButton" parent="MarginContainer2/VBoxContainer/HBoxContainer" instance=ExtResource("6_382bk")]
-layout_mode = 2
+[node name="ColorRect" parent="MarginContainer2/VBoxContainer/AnswerButton" index="1"]
+visible = false
 
-[node name="AnswerButton2" parent="MarginContainer2/VBoxContainer/HBoxContainer" instance=ExtResource("6_382bk")]
+[node name="AnswerButton3" parent="MarginContainer2/VBoxContainer" instance=ExtResource("6_382bk")]
 layout_mode = 2
+size_flags_vertical = 3
 
-[node name="AnswerButton3" parent="MarginContainer2/VBoxContainer/HBoxContainer" instance=ExtResource("6_382bk")]
+[node name="ColorRect" parent="MarginContainer2/VBoxContainer/AnswerButton3" index="1"]
+visible = false
+
+[node name="AnswerButton2" parent="MarginContainer2/VBoxContainer" instance=ExtResource("6_382bk")]
 layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ColorRect" parent="MarginContainer2/VBoxContainer/AnswerButton2" index="1"]
+visible = false
 
 [node name="GameOverScore" type="Label" parent="."]
 anchors_preset = -1
@@ -149,6 +156,10 @@ label_settings = ExtResource("9_30flk")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[connection signal="pressed" from="MarginContainer2/VBoxContainer/HBoxContainer/AnswerButton" to="." method="_on_answer_button_pressed"]
-[connection signal="pressed" from="MarginContainer2/VBoxContainer/HBoxContainer/AnswerButton2" to="." method="_on_answer_button_2_pressed"]
-[connection signal="pressed" from="MarginContainer2/VBoxContainer/HBoxContainer/AnswerButton3" to="." method="_on_answer_button_3_pressed"]
+[connection signal="pressed" from="MarginContainer2/VBoxContainer/AnswerButton" to="." method="_on_answer_button_pressed"]
+[connection signal="pressed" from="MarginContainer2/VBoxContainer/AnswerButton3" to="." method="_on_answer_button_3_pressed"]
+[connection signal="pressed" from="MarginContainer2/VBoxContainer/AnswerButton2" to="." method="_on_answer_button_2_pressed"]
+
+[editable path="MarginContainer2/VBoxContainer/AnswerButton"]
+[editable path="MarginContainer2/VBoxContainer/AnswerButton3"]
+[editable path="MarginContainer2/VBoxContainer/AnswerButton2"]
