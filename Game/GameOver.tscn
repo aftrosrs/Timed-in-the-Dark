@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bcmk3714lc7tb"]
+[gd_scene load_steps=11 format=3 uid="uid://bcmk3714lc7tb"]
 
 [ext_resource type="Texture2D" uid="uid://bb8po0vxe4vka" path="res://Sprites/Game_Background.webp" id="1_5f0n0"]
 [ext_resource type="Script" path="res://Game/GameOver.gd" id="1_o23nv"]
@@ -9,19 +9,6 @@
 [ext_resource type="FontFile" uid="uid://cyaetsiyt6peh" path="res://Font/Georgia-zEPX.otf" id="7_8dlw4"]
 [ext_resource type="LabelSettings" uid="uid://cehm53rxi8a62" path="res://Font/font_3.tres" id="8_kuw6q"]
 [ext_resource type="LabelSettings" uid="uid://fi5b1nr40ck2" path="res://Font/font_2.tres" id="9_30flk"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_emo7l"]
-bg_color = Color(0.6, 0.6, 0.6, 0.0588235)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color(1, 0, 0.0901961, 0.45098)
-border_blend = true
-corner_detail = 14
-shadow_color = Color(0, 0, 0, 0.505882)
-shadow_size = 1
-anti_aliasing_size = 4.0
 
 [sub_resource type="Theme" id="Theme_gtcsw"]
 default_font = ExtResource("7_8dlw4")
@@ -86,7 +73,6 @@ offset_right = 270.0
 offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/normal = SubResource("StyleBoxFlat_emo7l")
 text = "YOUR SOUL HAS BEEN CLAIMED!"
 label_settings = ExtResource("4_bpawd")
 horizontal_alignment = 1
@@ -129,11 +115,11 @@ layout_mode = 2
 
 [node name="GameOverScore" type="Label" parent="."]
 anchors_preset = -1
-anchor_left = 0.781
+anchor_left = 0.82
 anchor_top = 0.053
 anchor_right = 0.965
 anchor_bottom = 0.147
-offset_left = 50.3199
+offset_left = 0.399902
 offset_top = -0.160004
 offset_right = -0.200073
 offset_bottom = 0.160004
