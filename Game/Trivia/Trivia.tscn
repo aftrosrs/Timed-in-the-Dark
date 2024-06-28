@@ -703,8 +703,8 @@ grow_vertical = 2
 
 [node name="GameBackground" type="Sprite2D" parent="AspectRatioContainer"]
 self_modulate = Color(0.683077, 0.683077, 0.683077, 1)
-position = Vector2(665, 363)
-scale = Vector2(1.47781, 1.48446)
+position = Vector2(650.357, 364)
+scale = Vector2(1.51101, 1.53033)
 texture = ExtResource("7_ygn5t")
 
 [node name="AnimationPlayer4" type="AnimationPlayer" parent="AspectRatioContainer"]
