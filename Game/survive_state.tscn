@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://uu1u05jv4n4"]
+[gd_scene load_steps=7 format=3 uid="uid://uu1u05jv4n4"]
 
 [ext_resource type="Texture2D" uid="uid://bb8po0vxe4vka" path="res://Sprites/Game_Background.webp" id="1_3s1q3"]
 [ext_resource type="Script" path="res://Game/survive_state.gd" id="1_d2akm"]
 [ext_resource type="LabelSettings" uid="uid://cehm53rxi8a62" path="res://Font/font_3.tres" id="2_kk61j"]
 [ext_resource type="LabelSettings" uid="uid://fi5b1nr40ck2" path="res://Font/font_2.tres" id="3_dlf5o"]
+[ext_resource type="Texture2D" uid="uid://bodepjttxpey1" path="res://Sprites/scroll.png" id="3_l0ean"]
 [ext_resource type="PackedScene" uid="uid://cstukqml3y23j" path="res://Questions Panel/answer_button.tscn" id="4_hee1s"]
 
 [node name="SurviveState" type="CanvasLayer"]
@@ -14,6 +15,11 @@ self_modulate = Color(0.521141, 0.521141, 0.521141, 1)
 position = Vector2(640.5, 360.75)
 scale = Vector2(1.47052, 1.49609)
 texture = ExtResource("1_3s1q3")
+
+[node name="Scroll" type="Sprite2D" parent="."]
+position = Vector2(653, 411)
+scale = Vector2(1.782, 1.837)
+texture = ExtResource("3_l0ean")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 self_modulate = Color(1, 1, 1, 0)
@@ -85,13 +91,13 @@ custom_minimum_size = Vector2(200, 100)
 layout_mode = 2
 anchors_preset = 0
 anchor_left = 0.394
-anchor_top = 0.33
+anchor_top = 0.288
 anchor_right = 0.573
-anchor_bottom = 0.469
-offset_left = -0.320038
-offset_top = 12.4
+anchor_bottom = 0.427
+offset_left = -0.320068
+offset_top = 0.139984
 offset_right = -0.440002
-offset_bottom = -12.68
+offset_bottom = 0.0599976
 
 [node name="ColorRect" parent="PanelContainer/Panel/AnswerButton" index="1"]
 visible = false
@@ -101,12 +107,13 @@ custom_minimum_size = Vector2(200, 100)
 layout_mode = 2
 anchors_preset = 0
 anchor_left = 0.394
-anchor_top = 0.536
+anchor_top = 0.522
 anchor_right = 0.573
-anchor_bottom = 0.675
-offset_left = -0.320038
-offset_top = 0.0799866
+anchor_bottom = 0.661
+offset_left = -0.320068
+offset_top = -29.84
 offset_right = -0.440002
+offset_bottom = -29.92
 
 [node name="ColorRect" parent="PanelContainer/Panel/AnswerButton2" index="1"]
 visible = false
@@ -116,13 +123,13 @@ custom_minimum_size = Vector2(200, 100)
 layout_mode = 2
 anchors_preset = 0
 anchor_left = 0.394
-anchor_top = 0.754
+anchor_top = 0.726
 anchor_right = 0.573
-anchor_bottom = 0.893
-offset_left = -0.320038
-offset_top = 0.119995
+anchor_bottom = 0.865
+offset_left = -0.320068
+offset_top = -29.72
 offset_right = -0.440002
-offset_bottom = 0.039978
+offset_bottom = -29.8
 
 [node name="ColorRect" parent="PanelContainer/Panel/AnswerButton3" index="1"]
 visible = false

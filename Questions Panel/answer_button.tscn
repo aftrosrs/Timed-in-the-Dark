@@ -12,6 +12,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+pivot_offset = Vector2(200, 150)
 focus_mode = 0
 theme = ExtResource("1_i5gp7")
 theme_type_variation = &"FlatButton"

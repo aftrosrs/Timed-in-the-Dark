@@ -1,9 +1,85 @@
-[gd_scene load_steps=5 format=3 uid="uid://c04fhudmh8rjq"]
+[gd_scene load_steps=9 format=3 uid="uid://c04fhudmh8rjq"]
 
 [ext_resource type="Texture2D" uid="uid://bb8po0vxe4vka" path="res://Sprites/Game_Background.webp" id="1_5u2yv"]
 [ext_resource type="Script" path="res://Game/main_menu.gd" id="1_h2boh"]
 [ext_resource type="PackedScene" uid="uid://cstukqml3y23j" path="res://Questions Panel/answer_button.tscn" id="2_dyv6a"]
 [ext_resource type="AudioStream" uid="uid://bu5mpe7r0ox5j" path="res://Audio/Menu_Music Timed in the Dark.wav" id="4_oj0v8"]
+[ext_resource type="Texture2D" uid="uid://cesrml4wkf571" path="res://Sprites/Eye.png" id="4_ugrlq"]
+
+[sub_resource type="Animation" id="Animation_aj1r3"]
+resource_name = "Look around"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_nbecv"]
+resource_name = "Look around"
+length = 6.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.5, 0.6, 0.7, 5, 5.3, 5.5, 5.6, 5.7),
+"transitions": PackedFloat32Array(2, 2, -2, 2, -2, 2, 2, -2, 2, -2),
+"update": 2,
+"values": [Color(1, 1, 1, 1), Color(0.970992, 0.767941, 0.772352, 1), Color(1, 1, 1, 1), Color(0.939373, 0.558287, 0.580695, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(0.970992, 0.767941, 0.772352, 1), Color(1, 1, 1, 1), Color(0.939373, 0.558287, 0.580695, 1), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:flip_h")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4, 1.4, 3, 3.4, 4.4, 5, 5.4, 6),
+"transitions": PackedFloat32Array(2, -0.5, 1, 2, -0.5, 1, 2, -0.5, 1),
+"update": 2,
+"values": [false, true, false, false, true, false, false, true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:flip_v")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.8, 3, 3.8, 5, 5.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 2,
+"values": [false, true, false, true, false, true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:position")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.6, 1, 1.5, 2.2, 2.7, 3.3, 3.9, 4.8, 5.4, 5.9),
+"transitions": PackedFloat32Array(1, -2, 2, -2, 1, 0.5, 2, 2, -2, 2, 2, -2),
+"update": 2,
+"values": [Vector2(793, 404), Vector2(793, 404), Vector2(793, 200), Vector2(793, 200), Vector2(793, 404), Vector2(300, 400), Vector2(200, 300), Vector2(793, 200), Vector2(793, 200), Vector2(300, 400), Vector2(793, 404), Vector2(793, 200)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gpnqr"]
+_data = {
+"Look around": SubResource("Animation_nbecv"),
+"Zoom in": SubResource("Animation_aj1r3")
+}
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_h2boh")
@@ -26,6 +102,17 @@ grow_vertical = 2
 size_flags_horizontal = 6
 size_flags_vertical = 6
 texture = ExtResource("1_5u2yv")
+
+[node name="Eye" type="Sprite2D" parent="."]
+texture_filter = 1
+texture_repeat = 1
+position = Vector2(846, 393)
+texture = ExtResource("4_ugrlq")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Eye"]
+libraries = {
+"": SubResource("AnimationLibrary_gpnqr")
+}
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 self_modulate = Color(1, 1, 1, 0)
@@ -107,7 +194,7 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_outline_size = 12
 bbcode_enabled = true
 text = "[font_size={35}{tornado}[outline_color={code/name}][outline_size={9}][pulse][tornado][b][font=Font/Georgia-zEPX.otf][center]
-Artist: Amethyst Morris
+Artist: Amythyst Morris
 Developer: ThaAftrPartie
 [/center][/font][/b][/tornado][/pulse][/outline_size]"
 fit_content = true
@@ -145,6 +232,7 @@ metadata/_edit_group_ = true
 [node name="ColorRect" parent="StartGame" index="1"]
 visible = false
 
+[connection signal="animation_finished" from="Eye/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="pressed" from="ExitGame" to="." method="_on_answer_button_pressed"]
 [connection signal="pressed" from="StartGame" to="." method="_on_answer_button_2_pressed"]
 

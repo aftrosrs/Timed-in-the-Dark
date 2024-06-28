@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Question" load_steps=2 format=3 uid="uid://bg5nm3h78jx1i"]
+
+[ext_resource type="Script" path="res://Questions/questions.gd" id="1_6iwom"]
+
+[resource]
+script = ExtResource("1_6iwom")
+question = "Existing purely in the heartbeat of life itself. It is the undercurrent of all fear, the energy that spurs our deepest horrors on. It has no goals, no meaning, and no manifestation outside of the hideously loud beating of blood in the terrified masses' ears."
+answers = Array[String](["Imp", "Thump", "Goblin", "Cthulu"])
+correct_answer_index = 1
+score = 100000.0

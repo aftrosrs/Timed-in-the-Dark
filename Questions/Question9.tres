@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Question" load_steps=2 format=3 uid="uid://ccbipfeqv2kx6"]
+
+[ext_resource type="Script" path="res://Questions/questions.gd" id="1_ynvji"]
+
+[resource]
+script = ExtResource("1_ynvji")
+question = "There is a thing that nothing is, and yet it has a name. It's sometimes tall and sometimes short, joins our talks, joins our sport, and plays at every game"
+answers = Array[String](["Darkness", "Shadow", "Mystic", "Inception"])
+correct_answer_index = 1
+score = 500000.0

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Question" load_steps=2 format=3 uid="uid://bu58wb1edi24b"]
+
+[ext_resource type="Script" path="res://Questions/questions.gd" id="1_asxvf"]
+
+[resource]
+script = ExtResource("1_asxvf")
+question = "I am the creature that robs men of their dignity, pride, and will. I feast on children's dreams till' they have none. I am the monster in your head, waiting to strike."
+answers = Array[String](["Madness", "Lunacy", "Doubt", "Fear"])
+correct_answer_index = 3
+score = 1e+06
