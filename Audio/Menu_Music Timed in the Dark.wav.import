@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://bu5mpe7r0ox5j"
-path="res://.godot/imported/Menu_Music Timed in the Dark.wav-2c41b0adab0da36ea11b0861b8b84b71.sample"
+path="res://.godot/imported/Menu_Music Timed in the Dark.wav-50a341003e3b9d72263fc0ab952dd1b6.sample"
 
 [deps]
 
-source_file="res://Menu_Music Timed in the Dark.wav"
-dest_files=["res://.godot/imported/Menu_Music Timed in the Dark.wav-2c41b0adab0da36ea11b0861b8b84b71.sample"]
+source_file="res://Audio/Menu_Music Timed in the Dark.wav"
+dest_files=["res://.godot/imported/Menu_Music Timed in the Dark.wav-50a341003e3b9d72263fc0ab952dd1b6.sample"]
 
 [params]
 

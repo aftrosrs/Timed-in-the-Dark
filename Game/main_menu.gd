@@ -13,3 +13,8 @@ func _on_answer_button_pressed() -> void:
 func _on_answer_button_2_pressed() -> void:
 	get_tree().change_scene_to_file("res://Game/Trivia/Trivia.tscn")
 
+
+
+	print_rich("[tornado][b][font=Font/BaroqueTextJF Regular.ttf][center]",
+				"Timed In ","The Dark ",
+				"[/center][/font][/b][/tornado]")

@@ -3,7 +3,9 @@ class_name Trivia extends Node2D
 
 @export_category("Stats")
 @export_group("Stats")
+@export_subgroup("Stats")
 @export var health: int = 3
+@export_subgroup("Questions Answered Correctly")
 @export var questions_answered_correctly: int = 0
 @export_category("Arrays")
 @export_group("Arrays")
@@ -45,7 +47,7 @@ var button_select_index: int = 0
 @onready var question_value: Label = $"Questions Panel/QuestionsPanel/PanelContainer/Panel/QuestionValue"
 @onready var question_field: Label = $"Questions Panel/QuestionsPanel/PanelContainer/Panel/QuestionField"
 @onready var question_timer: Label = $"Questions Panel/QuestionsPanel/Question Timer"
-@onready var music: AudioStreamPlayer = $Music
+@onready var music: AudioStreamPlayer = $Node/Music
 
 
 
@@ -59,6 +61,7 @@ func _ready() -> void:
 	score_label.text = str("0") + " Souls"
 	_updateQuestion()
 	_updateAnswer()
+
 
 func _on_timer_timeout() -> void:
 	heart_shake()
@@ -159,6 +162,9 @@ func life():
 		await get_tree().create_timer(3).timeout
 		color_rect_hide()
 		timers[0].paused = false
+	await get_tree().create_timer(1).timeout
+	color_rect_hide()
+	timers[0].paused = false
 	print(health)
 	if health <= 0:
 		soul_claimed.text = "YOUR SOUL HAS BEEN CLAIMED"
@@ -170,6 +176,8 @@ func life():
 		game_over_score.text = score_label.text + " Claimed"
 		if questions_answered_correctly <= question_limit_index:
 			questions_answered.text = "You answered: " + str(questions_answered_correctly) + " questions correctly"
+
+
 
 func next_question():
 	reset_button_process_mode()
@@ -186,8 +194,7 @@ func _updateQuestion():
 	for question in questions:
 		if current_question_index > questions.size() - 1:
 			current_question_index = 0
-			#HACK personal way to close game on all questions answered correctly.
-			get_tree().quit()#hack replace this line with survive condition.
+			break#hack replace this line with survive condition.
 		question_field.text = questions[current_question_index].question
 		question_number.text = "Question: " + str(current_question_index + 1)
 		question_value.text = "For " + str(questions[current_question_index].score) + " Souls"
