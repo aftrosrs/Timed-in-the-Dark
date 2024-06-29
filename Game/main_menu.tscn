@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://c04fhudmh8rjq"]
+[gd_scene load_steps=12 format=3 uid="uid://c04fhudmh8rjq"]
 
 [ext_resource type="Texture2D" uid="uid://bb8po0vxe4vka" path="res://Sprites/Game_Background.webp" id="1_5u2yv"]
 [ext_resource type="Script" path="res://Game/main_menu.gd" id="1_h2boh"]
@@ -7,62 +7,50 @@
 [ext_resource type="AudioStream" uid="uid://bu5mpe7r0ox5j" path="res://Audio/Menu_Music Timed in the Dark.wav" id="4_oj0v8"]
 [ext_resource type="Texture2D" uid="uid://cesrml4wkf571" path="res://Sprites/Eye.png" id="4_ugrlq"]
 
-[sub_resource type="Animation" id="Animation_e8su3"]
-resource_name = "helpicantstopmakinganimatiions"
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_g1co4"]
-_data = {
-"helpicantstopmakinganimatiions": SubResource("Animation_e8su3")
-}
-
 [sub_resource type="Animation" id="Animation_sqayf"]
 resource_name = "hmm"
-length = 5.0
+length = 10.0
 loop_mode = 2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/path = NodePath(".:scale")
-tracks/0/interp = 1
+tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 4.3),
-"transitions": PackedFloat32Array(1, -2),
-"update": 0,
+"times": PackedFloat32Array(0, 10),
+"transitions": PackedFloat32Array(2.14355, -2),
+"update": 2,
 "values": [Vector2(1.788, 1.829), Vector2(2, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:skew")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 10),
+"transitions": PackedFloat32Array(0.554787, 3.4822),
+"update": 2,
+"values": [0.0, 1.46957]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:rotation")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 10),
+"transitions": PackedFloat32Array(-4.43828, -0.615572),
+"update": 2,
+"values": [0.0, 6.28319]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8lv8x"]
 _data = {
 "hmm": SubResource("Animation_sqayf")
-}
-
-[sub_resource type="Animation" id="Animation_aj1r3"]
-resource_name = "Look around"
-length = 3.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(0, 0), Vector2(1, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(793, 404)]
 }
 
 [sub_resource type="Animation" id="Animation_nbecv"]
@@ -142,6 +130,34 @@ tracks/5/keys = {
 "values": [Vector2(1, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_aj1r3"]
+resource_name = "Look around"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(793, 404)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_gpnqr"]
 _data = {
 "Look around": SubResource("Animation_nbecv"),
@@ -169,11 +185,6 @@ grow_vertical = 2
 size_flags_horizontal = 6
 size_flags_vertical = 6
 texture = ExtResource("1_5u2yv")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="TextureRect"]
-libraries = {
-"": SubResource("AnimationLibrary_g1co4")
-}
 
 [node name="Scroll" type="Sprite2D" parent="."]
 position = Vector2(634, 389)
@@ -225,8 +236,12 @@ grow_vertical = 2
 theme_override_colors/default_color = Color(1, 1, 1, 1)
 theme_override_colors/font_shadow_color = Color(0.516557, 0.125011, 0.110425, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_outline_size = 11
-theme_override_constants/outline_size = 8
+theme_override_constants/shadow_offset_x = -4
+theme_override_constants/shadow_offset_y = -1
+theme_override_constants/shadow_outline_size = 3
+theme_override_constants/outline_size = 32
+theme_override_constants/text_highlight_h_padding = 50
+theme_override_constants/text_highlight_v_padding = 50
 bbcode_enabled = true
 text = "[font_size={64}[outline_color={code/name}][outline_size={8}][pulse][wave][b][font=Font/BaroqueTextJF Regular.ttf][center]
 Timed In The Dark 
@@ -236,52 +251,86 @@ fit_content = true
 [node name="RichTextLabel2" type="RichTextLabel" parent="PanelContainer/Panel"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.904
-anchor_top = 1.341
-anchor_right = 1.808
-anchor_bottom = 1.609
-offset_left = 0.111938
-offset_top = 0.07901
-offset_right = 0.223938
-offset_bottom = -0.0290527
+anchor_left = 0.96
+anchor_top = 1.375
+anchor_right = 1.753
+anchor_bottom = 1.575
+offset_left = -0.120026
+offset_top = 0.124939
+offset_right = -0.0661011
+offset_bottom = -0.0750122
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/default_color = Color(1, 1, 1, 1)
 theme_override_colors/font_shadow_color = Color(0.516557, 0.125011, 0.110425, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_outline_size = 13
+theme_override_constants/shadow_offset_x = -1
+theme_override_constants/shadow_offset_y = -1
+theme_override_constants/shadow_outline_size = 10
 theme_override_constants/outline_size = 12
+theme_override_constants/text_highlight_h_padding = 6
+theme_override_constants/text_highlight_v_padding = 12
 bbcode_enabled = true
-text = "[font_size={32}[outline_color={code/name}][outline_size={9}][pulse][wave][b][font=Font/Georgia-zEPX.otf][center]
+text = "[font_size={32}[outline_color={code/name}][tornado][outline_size={9}][wave][b][font=Font/Georgia-zEPX.otf][center]
 How  Many  Souls  Shall You  Collect?
-[/center][/font][/b][/wave][/pulse][/outline_size]"
+[/center][/font][/b][/wave][/outline_size][/tornado]"
 fit_content = true
 tab_size = 24
 
 [node name="RichTextLabel3" type="RichTextLabel" parent="PanelContainer/Panel"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = -0.663
-anchor_top = 1.244
-anchor_right = -0.063
-anchor_bottom = 1.633
-offset_left = 0.0860291
-offset_top = 0.0359802
-offset_right = -0.113998
-offset_bottom = -0.173035
+anchor_left = -0.722
+anchor_top = -0.278
+anchor_right = 0.063
+anchor_bottom = -0.042
+offset_left = -0.115967
+offset_top = 5.91801
+offset_right = 0.113998
+offset_bottom = -5.998
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/default_color = Color(1, 1, 1, 1)
 theme_override_colors/font_shadow_color = Color(0.516557, 0.125011, 0.110425, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_outline_size = 12
+theme_override_constants/shadow_offset_x = -3
+theme_override_constants/shadow_offset_y = -2
+theme_override_constants/shadow_outline_size = 3
+theme_override_constants/outline_size = 12
+theme_override_constants/text_highlight_h_padding = 50
+theme_override_constants/text_highlight_v_padding = 50
+theme_override_font_sizes/normal_font_size = 20
 bbcode_enabled = true
-text = "[font_size={35}{tornado}[outline_color={code/name}][outline_size={9}][pulse][tornado][b][font=Font/Georgia-zEPX.otf][center]
-Artist: Amythyst Morris
-Developer: ThaAftrPartie
-[/center][/font][/b][/tornado][/pulse][/outline_size]"
+text = "[wave][b][font=Font/BaroqueTextJF Regular.ttf][center]
+Big Shoutout To Musician  &  Artist:  
+Amythyst Morris[/center][/font][/b][/wave]"
 fit_content = true
 autowrap_mode = 0
+tab_size = 24
+metadata/_edit_use_anchors_ = true
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="PanelContainer/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = -0.273
+anchor_right = 1.726
+anchor_bottom = -0.045
+offset_left = 1.0
+offset_top = 0.0130005
+offset_right = 0.0279541
+offset_bottom = 0.145
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0.517647, 0.12549, 0.109804, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = -2
+theme_override_constants/shadow_outline_size = 8
+theme_override_constants/outline_size = 12
+theme_override_constants/text_highlight_h_padding = 50
+theme_override_constants/text_highlight_v_padding = 50
+bbcode_enabled = true
+text = "[wave][b][font=Font/BaroqueTextJF Regular.ttf][center]
+Developer & Minor Art/Sfx Contributions: ThaAftrPartie[/center][/font][/b][/wave]"
 tab_size = 24
 
 [node name="ExitGame" parent="." instance=ExtResource("2_dyv6a")]

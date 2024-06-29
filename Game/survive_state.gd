@@ -1,11 +1,12 @@
 extends CanvasLayer
 
 
+
 func _ready() -> void:
 	$PanelContainer/Panel/AnswerButton.text = "Main Menu"
 	$PanelContainer/Panel/AnswerButton2.text = "Restart Game"
 	$PanelContainer/Panel/AnswerButton3.text = "Exit Game"
-
+	$Scroll/AnimationPlayer.play("hmm")
 
 
 

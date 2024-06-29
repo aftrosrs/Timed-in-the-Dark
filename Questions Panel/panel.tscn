@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://betkllk0yhnfa"]
+[gd_scene load_steps=15 format=3 uid="uid://betkllk0yhnfa"]
 
 [ext_resource type="Texture2D" uid="uid://b4cnascwf8r57" path="res://Sprites/Answer_Border.png" id="1_e0q01"]
 [ext_resource type="FontFile" uid="uid://cc2cd7c6s2yub" path="res://Font/BaroqueTextJF Regular.ttf" id="1_w3iua"]
@@ -34,76 +34,6 @@ bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s7qcf"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
-
-[sub_resource type="Animation" id="Animation_ox8fc"]
-resource_name = "Look around"
-length = 6.0
-loop_mode = 2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:self_modulate")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.5, 0.6, 0.7, 2, 2.3, 2.5, 2.6, 2.7, 5, 5.3, 5.5, 5.6, 5.7),
-"transitions": PackedFloat32Array(2, 2, -2, 2, -2, 2, 2, -2, 2, -2, 2, 2, -2, 2, -2),
-"update": 2,
-"values": [Color(1, 1, 1, 1), Color(0.970992, 0.767941, 0.772352, 1), Color(1, 1, 1, 1), Color(0.939373, 0.558287, 0.580695, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(0.970992, 0.767941, 0.772352, 1), Color(1, 1, 1, 1), Color(0.939373, 0.558287, 0.580695, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(0.970992, 0.767941, 0.772352, 1), Color(1, 1, 1, 1), Color(0.939373, 0.558287, 0.580695, 1), Color(1, 1, 1, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:flip_h")
-tracks/1/interp = 2
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.4, 1.4, 3, 3.4, 4.4, 5, 5.4, 6),
-"transitions": PackedFloat32Array(2, -0.5, 1, 2, -0.5, 1, 2, -0.5, 1),
-"update": 2,
-"values": [false, true, false, false, true, false, false, true, false]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".:flip_v")
-tracks/2/interp = 2
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.8, 3, 3.8, 5, 5.8),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 2,
-"values": [false, true, false, true, false, true]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath(".:position")
-tracks/3/interp = 2
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 1.1, 1.2, 1.4, 2.2, 2.5, 3.1, 4, 4.8, 5.4, 6),
-"transitions": PackedFloat32Array(-2, 0.5, 2, 1, -2, 0.5, 2, 0.5, 0.5, 0.5, -0.5),
-"update": 2,
-"values": [Vector2(-1000, -500), Vector2(1205, 237), Vector2(1000, 300), Vector2(500, 400), Vector2(700, 600), Vector2(1205, 237), Vector2(1000, 300), Vector2(1205, 237), Vector2(1205, 237), Vector2(500, 400), Vector2(1000, 500)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath(".:rotation")
-tracks/4/interp = 2
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(1, 1.9, 4, 5),
-"transitions": PackedFloat32Array(0.5, 0.5, 2, 2),
-"update": 2,
-"values": [6.28319, 6.28319, -6.28319, -6.28319]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_lrkdj"]
-_data = {
-"Look around": SubResource("Animation_ox8fc")
-}
 
 [node name="QuestionsPanel" type="Control"]
 layout_mode = 3
@@ -257,11 +187,6 @@ position = Vector2(-1000, -500)
 rotation = 6.28319
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("6_tojeo")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Eye"]
-libraries = {
-"": SubResource("AnimationLibrary_lrkdj")
-}
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 2

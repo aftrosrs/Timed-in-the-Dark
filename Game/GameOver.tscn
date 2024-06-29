@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://bb8po0vxe4vka" path="res://Sprites/Game_Background.webp" id="1_5f0n0"]
 [ext_resource type="Script" path="res://Game/GameOver.gd" id="1_o23nv"]
 [ext_resource type="Theme" uid="uid://njobidcon4c5" path="res://Font/font_theme.tres" id="2_lcb0y"]
-[ext_resource type="Texture2D" uid="uid://bodepjttxpey1" path="res://Sprites/scroll.png" id="3_p865y"]
+[ext_resource type="PackedScene" uid="uid://6ps7825ppgie" path="res://Sprites/scroll.tscn" id="3_tbjhq"]
 [ext_resource type="StyleBox" uid="uid://duhfqnqj7w5ky" path="res://Questions Panel/button.tres" id="3_ws47h"]
 [ext_resource type="LabelSettings" uid="uid://swopcct6qg1x" path="res://Questions Panel/panel.tres" id="4_bpawd"]
 [ext_resource type="PackedScene" uid="uid://cstukqml3y23j" path="res://Questions Panel/answer_button.tscn" id="6_382bk"]
@@ -38,11 +38,7 @@ scale = Vector2(1.05, 1.05)
 texture = ExtResource("1_5f0n0")
 expand_mode = 1
 
-[node name="Scroll" type="Sprite2D" parent="."]
-self_modulate = Color(0.577008, 0.577008, 0.577008, 1)
-position = Vector2(662, 408)
-scale = Vector2(1.592, 1.747)
-texture = ExtResource("3_p865y")
+[node name="Scroll" parent="." instance=ExtResource("3_tbjhq")]
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 anchors_preset = 15
@@ -127,6 +123,7 @@ size_flags_vertical = 3
 visible = false
 
 [node name="GameOverScore" type="Label" parent="."]
+texture_filter = 1
 anchors_preset = -1
 anchor_left = 0.82
 anchor_top = 0.053
@@ -162,10 +159,63 @@ label_settings = ExtResource("9_30flk")
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+texture_filter = 1
+anchors_preset = -1
+anchor_left = 0.002
+anchor_top = 0.843
+anchor_right = 0.309
+anchor_bottom = 0.985
+offset_left = -0.56
+offset_top = 0.039978
+offset_right = 0.47998
+offset_bottom = -0.200073
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0.517647, 0.12549, 0.109804, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = -2
+theme_override_constants/shadow_offset_y = -2
+theme_override_constants/shadow_outline_size = 2
+theme_override_constants/outline_size = 5
+theme_override_constants/text_highlight_h_padding = 50
+theme_override_constants/text_highlight_v_padding = 50
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "[wave][b][font=Font/BaroqueTextJF Regular.ttf][center]
+Big Shoutout To Musician  &  Artist:
+  Amythyst Morris[/center][/font][/b][/wave]"
+tab_size = 24
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="."]
+texture_filter = 1
+anchors_preset = -1
+anchor_left = 0.702
+anchor_top = 0.862
+anchor_right = 1.0
+anchor_bottom = 0.994
+offset_left = -0.560059
+offset_top = 0.359985
+offset_right = 2.0
+offset_bottom = 0.320007
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0.517647, 0.12549, 0.109804, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = -2
+theme_override_constants/shadow_offset_y = -2
+theme_override_constants/shadow_outline_size = 2
+theme_override_constants/outline_size = 5
+theme_override_constants/text_highlight_h_padding = 50
+theme_override_constants/text_highlight_v_padding = 50
+bbcode_enabled = true
+text = "[wave][b][font=Font/BaroqueTextJF Regular.ttf][center]
+Developer & Minor Art/Sfx Contributions: ThaAftrPartie[/center][/font][/b][/wave]"
+tab_size = 24
+
 [connection signal="pressed" from="MarginContainer2/VBoxContainer/AnswerButton" to="." method="_on_answer_button_pressed"]
 [connection signal="pressed" from="MarginContainer2/VBoxContainer/AnswerButton3" to="." method="_on_answer_button_3_pressed"]
 [connection signal="pressed" from="MarginContainer2/VBoxContainer/AnswerButton2" to="." method="_on_answer_button_2_pressed"]
 
+[editable path="Scroll"]
 [editable path="MarginContainer2/VBoxContainer/AnswerButton"]
 [editable path="MarginContainer2/VBoxContainer/AnswerButton3"]
 [editable path="MarginContainer2/VBoxContainer/AnswerButton2"]

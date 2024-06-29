@@ -754,7 +754,7 @@ libraries = {
 position = Vector2(640, 360)
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 30.0
+wait_time = 45.0
 one_shot = true
 
 [node name="Node" type="Node" parent="."]
@@ -781,6 +781,7 @@ autoplay = true
 [editable path="Questions Panel/QuestionsPanel/HBoxContainer2/AnswerButton3"]
 [editable path="Questions Panel/QuestionsPanel/HBoxContainer2/AnswerButton4"]
 [editable path="Game Over"]
+[editable path="Game Over/Scroll"]
 [editable path="Game Over/MarginContainer2/VBoxContainer/AnswerButton"]
 [editable path="Game Over/MarginContainer2/VBoxContainer/AnswerButton3"]
 [editable path="Game Over/MarginContainer2/VBoxContainer/AnswerButton2"]

@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_t7ewg")
-question = "- A small tentacle roughly the size and shape of a tongue. Its slithers and tries to fight its way into its victim's mouth, where it absorbs the original tongue. Whoever the Tongue possess now is controlled by the void, and it speaks through them."
-answers = Array[String](["The Tongue", "Husks", "Halpolan the Aspect of Brutality", "Dalgd’r’s Aria"])
+question = "A small tentacle roughly the size and shape of a tongue. Its slithers and tries to fight its way into its victim's mouth, where it absorbs the original tongue. Whoever the Tongue possess now is controlled by the void, and it speaks through them."
+answers = Array[String](["The Tongue", "Husks", "Halpolan", "R'hhk"])
 correct_answer_index = 0
 score = 250000.0

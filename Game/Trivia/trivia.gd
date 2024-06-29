@@ -42,8 +42,6 @@ var button_select_index: int = 0
 @onready var animation_player_2: AnimationPlayer = $Hearts/AnimationPlayer2
 @onready var animation_player_3: AnimationPlayer = $Hearts/AnimationPlayer3
 @onready var animation_player_4: AnimationPlayer = $AspectRatioContainer/AnimationPlayer4
-@onready var animation_player_5: AnimationPlayer = $"Questions Panel/QuestionsPanel/Eye/AnimationPlayer"
-
 
 
 
@@ -70,7 +68,6 @@ func _ready() -> void:
 	score_label.text = str("0") + " Souls"
 	_updateQuestion()
 	_updateAnswer()
-	animation_player_5.play("Look around")
 
 
 func _on_timer_timeout() -> void:
@@ -123,19 +120,13 @@ func life():
 	if health == 3:
 		health -= 1
 		await get_tree().create_timer(3).timeout
-		color_rect_hide()
-		timers[0].paused = false
 	elif health == 2:
 		health -= 1
 		await get_tree().create_timer(3).timeout
-		color_rect_hide()
-		timers[0].paused = false
 	elif health == 1:
 		health -=1
 		await get_tree().create_timer(3).timeout
-		color_rect_hide()
-		timers[0].paused = false
-	await get_tree().create_timer(1).timeout
+	await get_tree().create_timer(2.5).timeout
 	color_rect_hide()
 	timers[0].paused = false
 	print(health)
@@ -146,6 +137,7 @@ func life():
 		canvas_layers[2].hide()
 		canvas_layers[0].hide()
 		color_rect_hide()
+		await get_tree().create_timer(0.5).timeout
 		game_over_score.text = "Claimed " + score_label.text + " Souls"
 		if questions_answered_correctly <= question_limit_index:
 			questions_answered.text = "You answered: " + str(questions_answered_correctly) + " questions correctly"
@@ -239,7 +231,6 @@ func end_anims():
 	animation_player_2.stop()
 	animation_player_3.stop()
 	animation_player_4.stop()
-	animation_player_5.stop()
 
 func _updateQuestion_Timer():
 	question_timer.text = str("Time: ") + "%.2f" % timers[0].time_left

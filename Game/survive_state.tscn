@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://uu1u05jv4n4"]
+[gd_scene load_steps=9 format=3 uid="uid://uu1u05jv4n4"]
 
 [ext_resource type="Texture2D" uid="uid://bb8po0vxe4vka" path="res://Sprites/Game_Background.webp" id="1_3s1q3"]
 [ext_resource type="Script" path="res://Game/survive_state.gd" id="1_d2akm"]
@@ -6,6 +6,52 @@
 [ext_resource type="LabelSettings" uid="uid://fi5b1nr40ck2" path="res://Font/font_2.tres" id="3_dlf5o"]
 [ext_resource type="Texture2D" uid="uid://bodepjttxpey1" path="res://Sprites/scroll.png" id="3_l0ean"]
 [ext_resource type="PackedScene" uid="uid://cstukqml3y23j" path="res://Questions Panel/answer_button.tscn" id="4_hee1s"]
+
+[sub_resource type="Animation" id="Animation_naug3"]
+resource_name = "hmm"
+length = 10.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 10),
+"transitions": PackedFloat32Array(2.14355, -2),
+"update": 2,
+"values": [Vector2(1.788, 1.829), Vector2(2, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:skew")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 10),
+"transitions": PackedFloat32Array(0.554787, 3.4822),
+"update": 2,
+"values": [0.0, 1.46957]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:rotation")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 10),
+"transitions": PackedFloat32Array(-4.43828, -0.615572),
+"update": 2,
+"values": [0.0, 6.28319]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3gfuw"]
+_data = {
+"hmm": SubResource("Animation_naug3")
+}
 
 [node name="SurviveState" type="CanvasLayer"]
 script = ExtResource("1_d2akm")
@@ -17,9 +63,14 @@ scale = Vector2(1.47052, 1.49609)
 texture = ExtResource("1_3s1q3")
 
 [node name="Scroll" type="Sprite2D" parent="."]
-position = Vector2(653, 411)
-scale = Vector2(1.782, 1.837)
+position = Vector2(653, 359)
+scale = Vector2(1.788, 1.829)
 texture = ExtResource("3_l0ean")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Scroll"]
+libraries = {
+"": SubResource("AnimationLibrary_3gfuw")
+}
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 self_modulate = Color(1, 1, 1, 0)
@@ -36,10 +87,10 @@ layout_mode = 2
 [node name="RichTextLabel2" type="RichTextLabel" parent="PanelContainer/Panel"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.279
-anchor_top = 0.139
-anchor_right = 0.67
-anchor_bottom = 0.278
+anchor_left = 0.280563
+anchor_top = 0.0445556
+anchor_right = 0.671563
+anchor_bottom = 0.183556
 offset_left = -0.120026
 offset_top = -0.0800095
 offset_right = -0.600037
@@ -60,14 +111,14 @@ metadata/_edit_use_anchors_ = true
 [node name="Final Score" type="Label" parent="PanelContainer/Panel"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.827
-anchor_top = 0.021
-anchor_right = 0.99
-anchor_bottom = 0.099
-offset_left = -0.560059
-offset_top = -0.120001
-offset_right = -0.200073
-offset_bottom = -0.280006
+anchor_left = 0.674
+anchor_top = 0.022
+anchor_right = 0.919
+anchor_bottom = 0.1
+offset_left = 0.279968
+offset_top = 0.159999
+offset_right = -0.320068
+text = "You Claimed 1000000 Souls"
 label_settings = ExtResource("2_kk61j")
 
 [node name="Answered All Correctly" type="Label" parent="PanelContainer/Panel"]
@@ -95,9 +146,9 @@ anchor_top = 0.288
 anchor_right = 0.573
 anchor_bottom = 0.427
 offset_left = -0.320068
-offset_top = 0.139984
+offset_top = -51.86
 offset_right = -0.440002
-offset_bottom = 0.0599976
+offset_bottom = -51.94
 
 [node name="ColorRect" parent="PanelContainer/Panel/AnswerButton" index="1"]
 visible = false
@@ -111,9 +162,9 @@ anchor_top = 0.522
 anchor_right = 0.573
 anchor_bottom = 0.661
 offset_left = -0.320068
-offset_top = -29.84
+offset_top = -81.84
 offset_right = -0.440002
-offset_bottom = -29.92
+offset_bottom = -81.92
 
 [node name="ColorRect" parent="PanelContainer/Panel/AnswerButton2" index="1"]
 visible = false
@@ -127,12 +178,61 @@ anchor_top = 0.726
 anchor_right = 0.573
 anchor_bottom = 0.865
 offset_left = -0.320068
-offset_top = -29.72
+offset_top = -81.72
 offset_right = -0.440002
-offset_bottom = -29.8
+offset_bottom = -81.8
 
 [node name="ColorRect" parent="PanelContainer/Panel/AnswerButton3" index="1"]
 visible = false
+
+[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.001875
+anchor_top = 0.8635
+anchor_right = 0.325
+anchor_bottom = 0.988889
+offset_left = -0.399998
+offset_top = 0.279968
+offset_right = -3.05176e-05
+offset_bottom = 1.0
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0.517647, 0.12549, 0.109804, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = -2
+theme_override_constants/shadow_offset_y = -2
+theme_override_constants/shadow_outline_size = 1
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "[wave][b][font=Font/BaroqueTextJF Regular.ttf][center]
+Big Shoutout To Musician  &  Artist:  Amythyst Morris[/center][/font][/b][/wave]"
+tab_size = 24
+metadata/_edit_use_anchors_ = true
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="PanelContainer/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.67
+anchor_top = 0.861
+anchor_right = 0.987
+anchor_bottom = 0.993
+offset_left = 0.399963
+offset_top = 0.0799561
+offset_right = 0.639893
+offset_bottom = 0.039978
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0.517647, 0.12549, 0.109804, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = -2
+theme_override_constants/shadow_offset_y = -2
+theme_override_constants/shadow_outline_size = 2
+theme_override_constants/outline_size = 5
+theme_override_constants/text_highlight_h_padding = 50
+theme_override_constants/text_highlight_v_padding = 50
+bbcode_enabled = true
+text = "[wave][b][font=Font/BaroqueTextJF Regular.ttf][center]
+Developer & Minor Art/Sfx Contributions: ThaAftrPartie[/center][/font][/b][/wave]"
 
 [connection signal="pressed" from="PanelContainer/Panel/AnswerButton" to="." method="_on_answer_button_pressed"]
 [connection signal="pressed" from="PanelContainer/Panel/AnswerButton2" to="." method="_on_answer_button_2_pressed"]
