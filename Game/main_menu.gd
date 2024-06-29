@@ -12,8 +12,17 @@ func _ready() -> void:
 				"Timed In ","The Dark ",
 				"[/center][/font][/b][/tornado]")
 
+	print_rich("[wave][b][font=Font/BaroqueTextJF Regular.ttf][center]",
+				"Created ","By ",
+				"[/center][/font][/b][/wave]")
 
+	print_rich("[wave][pulse][b][font=Font/BaroqueTextJF Regular.ttf][center]",
+				"Music & Artist: ","Amythyst Morris",
+				"[/center][/font][/b][/pulse][/wave]")
 
+	print_rich("[pulse][wave][b][font=Font/BaroqueTextJF Regular.ttf][center]",
+				"Developer: ","ThaAftrPartie ",
+				"[/center][/font][/b][/wave][/pulse]")
 
 func _on_answer_button_pressed() -> void:
 	get_tree().quit()
