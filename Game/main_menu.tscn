@@ -1,10 +1,41 @@
-[gd_scene load_steps=9 format=3 uid="uid://c04fhudmh8rjq"]
+[gd_scene load_steps=14 format=3 uid="uid://c04fhudmh8rjq"]
 
 [ext_resource type="Texture2D" uid="uid://bb8po0vxe4vka" path="res://Sprites/Game_Background.webp" id="1_5u2yv"]
 [ext_resource type="Script" path="res://Game/main_menu.gd" id="1_h2boh"]
 [ext_resource type="PackedScene" uid="uid://cstukqml3y23j" path="res://Questions Panel/answer_button.tscn" id="2_dyv6a"]
+[ext_resource type="Texture2D" uid="uid://bodepjttxpey1" path="res://Sprites/scroll.png" id="4_82qrg"]
 [ext_resource type="AudioStream" uid="uid://bu5mpe7r0ox5j" path="res://Audio/Menu_Music Timed in the Dark.wav" id="4_oj0v8"]
 [ext_resource type="Texture2D" uid="uid://cesrml4wkf571" path="res://Sprites/Eye.png" id="4_ugrlq"]
+
+[sub_resource type="Animation" id="Animation_e8su3"]
+resource_name = "helpicantstopmakinganimatiions"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_g1co4"]
+_data = {
+"helpicantstopmakinganimatiions": SubResource("Animation_e8su3")
+}
+
+[sub_resource type="Animation" id="Animation_sqayf"]
+resource_name = "hmm"
+length = 5.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 4.3),
+"transitions": PackedFloat32Array(1, -2),
+"update": 0,
+"values": [Vector2(1.788, 1.829), Vector2(2, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8lv8x"]
+_data = {
+"hmm": SubResource("Animation_sqayf")
+}
 
 [sub_resource type="Animation" id="Animation_aj1r3"]
 resource_name = "Look around"
@@ -21,6 +52,18 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector2(0, 0), Vector2(1, 1)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(793, 404)]
+}
 
 [sub_resource type="Animation" id="Animation_nbecv"]
 resource_name = "Look around"
@@ -33,10 +76,10 @@ tracks/0/path = NodePath(".:self_modulate")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.5, 0.6, 0.7, 5, 5.3, 5.5, 5.6, 5.7),
-"transitions": PackedFloat32Array(2, 2, -2, 2, -2, 2, 2, -2, 2, -2),
+"times": PackedFloat32Array(0, 0.3, 0.5, 0.6, 0.7, 2, 2.3, 2.5, 2.6, 2.7, 5, 5.3, 5.5, 5.6, 5.7),
+"transitions": PackedFloat32Array(2, 2, -2, 2, -2, 2, 2, -2, 2, -2, 2, 2, -2, 2, -2),
 "update": 2,
-"values": [Color(1, 1, 1, 1), Color(0.970992, 0.767941, 0.772352, 1), Color(1, 1, 1, 1), Color(0.939373, 0.558287, 0.580695, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(0.970992, 0.767941, 0.772352, 1), Color(1, 1, 1, 1), Color(0.939373, 0.558287, 0.580695, 1), Color(1, 1, 1, 1)]
+"values": [Color(1, 1, 1, 1), Color(0.970992, 0.767941, 0.772352, 1), Color(1, 1, 1, 1), Color(0.939373, 0.558287, 0.580695, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(0.970992, 0.767941, 0.772352, 1), Color(1, 1, 1, 1), Color(0.939373, 0.558287, 0.580695, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(0.970992, 0.767941, 0.772352, 1), Color(1, 1, 1, 1), Color(0.939373, 0.558287, 0.580695, 1), Color(1, 1, 1, 1)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -69,10 +112,34 @@ tracks/3/path = NodePath(".:position")
 tracks/3/interp = 2
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.4, 0.6, 1, 1.5, 2.2, 2.7, 3.3, 3.9, 4.8, 5.4, 5.9),
-"transitions": PackedFloat32Array(1, -2, 2, -2, 1, 0.5, 2, 2, -2, 2, 2, -2),
+"times": PackedFloat32Array(0, 0.5, 0.9, 1.2, 1.9, 2.6, 3.3, 3.9, 4.5, 5.3, 5.7, 6),
+"transitions": PackedFloat32Array(1, -2, 2, -2, 1, 0.5, 2, -2, 2, 2, -2, 2),
 "update": 2,
-"values": [Vector2(793, 404), Vector2(793, 404), Vector2(793, 200), Vector2(793, 200), Vector2(793, 404), Vector2(300, 400), Vector2(200, 300), Vector2(793, 200), Vector2(793, 200), Vector2(300, 400), Vector2(793, 404), Vector2(793, 200)]
+"values": [Vector2(793, 404), Vector2(793, 404), Vector2(793, 200), Vector2(793, 200), Vector2(793, 404), Vector2(300, 400), Vector2(793, 200), Vector2(793, 200), Vector2(200, 300), Vector2(300, 400), Vector2(793, 200), Vector2(793, 404)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(1, 1.9, 4, 5),
+"transitions": PackedFloat32Array(0.5, 0.5, 2, 2),
+"update": 0,
+"values": [6.28319, 6.28319, -6.28319, -6.28319]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_gpnqr"]
@@ -103,10 +170,26 @@ size_flags_horizontal = 6
 size_flags_vertical = 6
 texture = ExtResource("1_5u2yv")
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="TextureRect"]
+libraries = {
+"": SubResource("AnimationLibrary_g1co4")
+}
+
+[node name="Scroll" type="Sprite2D" parent="."]
+position = Vector2(634, 389)
+scale = Vector2(1.788, 1.829)
+texture = ExtResource("4_82qrg")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Scroll"]
+libraries = {
+"": SubResource("AnimationLibrary_8lv8x")
+}
+
 [node name="Eye" type="Sprite2D" parent="."]
 texture_filter = 1
 texture_repeat = 1
-position = Vector2(846, 393)
+position = Vector2(793, 404)
+rotation = 6.28319
 texture = ExtResource("4_ugrlq")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Eye"]
@@ -206,9 +289,9 @@ anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
 offset_left = 447.0
-offset_top = 473.0
+offset_top = 395.0
 offset_right = 748.0
-offset_bottom = 620.0
+offset_bottom = 542.0
 grow_horizontal = 1
 grow_vertical = 1
 metadata/_edit_group_ = true

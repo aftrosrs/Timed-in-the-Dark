@@ -13,7 +13,10 @@ config_version=5
 config/name="Trivia Game for Time Jam"
 run/main_scene="res://Game/main_menu.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
+boot_splash/bg_color=Color(0, 0, 0, 0)
+boot_splash/image="res://Sprites/scroll.png"
 config/icon="res://Sprites/icon.svg"
+boot_splash/minimum_display_time=5000
 
 [debug]
 
@@ -34,6 +37,7 @@ window/vsync/vsync_mode=0
 
 [editor]
 
+movie_writer/mjpeg_quality=1.0
 movie_writer/movie_file="D:/Game/Projects/Footage/Buttons Working.avi"
 
 [editor_plugins]
@@ -61,3 +65,7 @@ import/blender/enabled=false
 [physics]
 
 common/size/window_height_override=1080
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0

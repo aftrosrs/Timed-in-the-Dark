@@ -42,6 +42,7 @@ var button_select_index: int = 0
 @onready var animation_player_2: AnimationPlayer = $Hearts/AnimationPlayer2
 @onready var animation_player_3: AnimationPlayer = $Hearts/AnimationPlayer3
 @onready var animation_player_4: AnimationPlayer = $AspectRatioContainer/AnimationPlayer4
+@onready var animation_player_5: AnimationPlayer = $"Questions Panel/QuestionsPanel/Eye/AnimationPlayer"
 
 
 
@@ -69,6 +70,7 @@ func _ready() -> void:
 	score_label.text = str("0") + " Souls"
 	_updateQuestion()
 	_updateAnswer()
+	animation_player_5.play("Look around")
 
 
 func _on_timer_timeout() -> void:
@@ -173,6 +175,7 @@ func _updateQuestion():
 		question_field.text = questions[current_question_index].question
 		question_number.text = "Question: " + str(current_question_index + 1)
 		question_value.text = "For " + str(questions[current_question_index].score) + " Souls"
+	
 
 func _updateAnswer():
 	var index = 0
@@ -236,6 +239,7 @@ func end_anims():
 	animation_player_2.stop()
 	animation_player_3.stop()
 	animation_player_4.stop()
+	animation_player_5.stop()
 
 func _updateQuestion_Timer():
 	question_timer.text = str("Time: ") + "%.2f" % timers[0].time_left
