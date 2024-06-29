@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://uu1u05jv4n4"]
+[gd_scene load_steps=10 format=3 uid="uid://uu1u05jv4n4"]
 
 [ext_resource type="Texture2D" uid="uid://bb8po0vxe4vka" path="res://Sprites/Game_Background.webp" id="1_3s1q3"]
 [ext_resource type="Script" path="res://Game/survive_state.gd" id="1_d2akm"]
@@ -6,6 +6,7 @@
 [ext_resource type="LabelSettings" uid="uid://fi5b1nr40ck2" path="res://Font/font_2.tres" id="3_dlf5o"]
 [ext_resource type="Texture2D" uid="uid://bodepjttxpey1" path="res://Sprites/scroll.png" id="3_l0ean"]
 [ext_resource type="PackedScene" uid="uid://cstukqml3y23j" path="res://Questions Panel/answer_button.tscn" id="4_hee1s"]
+[ext_resource type="AudioStream" uid="uid://bu5mpe7r0ox5j" path="res://Audio/Menu_Music Timed in the Dark.wav" id="7_sqpld"]
 
 [sub_resource type="Animation" id="Animation_naug3"]
 resource_name = "hmm"
@@ -189,8 +190,8 @@ visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.001875
-anchor_top = 0.8635
-anchor_right = 0.325
+anchor_top = 0.852389
+anchor_right = 0.327344
 anchor_bottom = 0.988889
 offset_left = -0.399998
 offset_top = 0.279968
@@ -233,6 +234,11 @@ theme_override_constants/text_highlight_v_padding = 50
 bbcode_enabled = true
 text = "[wave][b][font=Font/BaroqueTextJF Regular.ttf][center]
 Developer & Minor Art/Sfx Contributions: ThaAftrPartie[/center][/font][/b][/wave]"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_sqpld")
+volume_db = -15.0
+pitch_scale = 0.8
 
 [connection signal="pressed" from="PanelContainer/Panel/AnswerButton" to="." method="_on_answer_button_pressed"]
 [connection signal="pressed" from="PanelContainer/Panel/AnswerButton2" to="." method="_on_answer_button_2_pressed"]

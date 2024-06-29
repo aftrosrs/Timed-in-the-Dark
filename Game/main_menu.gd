@@ -7,9 +7,9 @@ extends Node2D
 
 
 func _ready() -> void:
-	music.play(0.0)
 	$StartGame.text = "Start Game"
 	$ExitGame.text = "Exit Game"
+	music.play(0.0)
 	animation_player.play("Zoom in")
 	animation_player2.play("hmm")
 	print_rich("[tornado][b][font=Font/BaroqueTextJF Regular.ttf][center]",
@@ -33,6 +33,7 @@ func _on_answer_button_pressed() -> void:
 
 
 func _on_answer_button_2_pressed() -> void:
+	music.stop()
 	get_tree().change_scene_to_file("res://Game/Trivia/Trivia.tscn")
 
 

@@ -56,12 +56,13 @@ var button_select_index: int = 0
 @onready var question_timer: Label = $"Questions Panel/QuestionsPanel/Question Timer"
 @onready var final_score: Label = $"SurviveState/PanelContainer/Panel/Final Score"
 @onready var music: AudioStreamPlayer = $Node/Music
+@onready var timer_sound: AudioStreamPlayer = $"Node/Timer sound"
 
 
 func _ready() -> void:
 	timers[0].start()
 	timers[0].paused = true
-	music.autoplay = true
+	music.play(0.0)
 	animation_player.play("Idle")
 	animation_player_4.play("background")
 	question_timer.text = str("Time: ") + "%.2f" % + timers[0].time_left
@@ -73,6 +74,7 @@ func _ready() -> void:
 func _on_timer_timeout() -> void:
 	heart_shake()
 	life()
+	timer_sound.play()
 	timers[0].start()
 
 func _process(delta: float) -> void:
@@ -80,6 +82,7 @@ func _process(delta: float) -> void:
 
 func pressed(button_index: int):
 	color_rect_show()
+	timer_sound.stop()
 	if button_index == questions[current_question_index].correct_answer_index:
 		questions[current_question_index].correct_answer_index = questions[current_question_index].correct_answer_index
 		next_question()
@@ -119,18 +122,19 @@ func life():
 	color_rect_show()
 	if health == 3:
 		health -= 1
-		await get_tree().create_timer(3).timeout
 	elif health == 2:
 		health -= 1
-		await get_tree().create_timer(3).timeout
 	elif health == 1:
 		health -=1
-		await get_tree().create_timer(3).timeout
 	await get_tree().create_timer(2.5).timeout
 	color_rect_hide()
+	timer_sound.play()
 	timers[0].paused = false
 	print(health)
 	if health <= 0:
+		timer_sound.stop()
+		timers[0].stop()
+		color_rect_show()
 		soul_claimed.text = "YOUR SOUL HAS BEEN CLAIMED"
 		end_anims()
 		canvas_layers[1].show()
@@ -159,6 +163,7 @@ func _updateQuestion():
 	for question in questions:
 		if current_question_index > questions.size() - 1:
 			current_question_index = 0
+			timer_sound.stop()
 			canvas_layers[3].show()
 			end_anims()
 			canvas_layers[2].hide()
@@ -205,6 +210,7 @@ func _updateText(index, answer):#sets the button text to the answer found
 	buttons[3].modulate.a = 1.0
 	await get_tree().create_timer(2).timeout
 	color_rect_hide()
+	timer_sound.play()
 	timers[0].paused = false
 
 func color_rect_hide():
