@@ -1,8 +1,6 @@
 class_name Todos 
 
 
-#FIXME UPDATE FONT
-#pseudo font is hard to read.
 
 #broken fix pact with the devil, possible state machine as a fix.
 

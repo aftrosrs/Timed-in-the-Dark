@@ -7,8 +7,8 @@ extends Node2D
 
 
 func _ready() -> void:
-	$StartGame.text = "Start Game"
-	$ExitGame.text = "Exit Game"
+	$StartGame.text = " S t a r t  G a m e"
+	$ExitGame.text = "E x i t  G a m e"
 	music.play(0.0)
 	animation_player.play("Zoom in")
 	animation_player2.play("hmm")

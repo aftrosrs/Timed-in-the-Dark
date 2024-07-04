@@ -12,12 +12,12 @@
 [ext_resource type="PackedScene" uid="uid://betkllk0yhnfa" path="res://Questions Panel/panel.tscn" id="8_6lhaw"]
 [ext_resource type="Resource" uid="uid://bg5nm3h78jx1i" path="res://Questions/Question7.tres" id="8_ngl52"]
 [ext_resource type="Resource" uid="uid://bdrpmibv04pu3" path="res://Questions/Question8.tres" id="9_b67de"]
-[ext_resource type="LabelSettings" uid="uid://fi5b1nr40ck2" path="res://Font/font_2.tres" id="10_cu513"]
 [ext_resource type="Resource" uid="uid://ccbipfeqv2kx6" path="res://Questions/Question9.tres" id="10_f4vb4"]
 [ext_resource type="Texture2D" uid="uid://bjuc07buipgma" path="res://Sprites/Heart_Dead.png" id="10_goexv"]
 [ext_resource type="Resource" uid="uid://bu58wb1edi24b" path="res://Questions/Question10.tres" id="11_2pnet"]
 [ext_resource type="Texture2D" uid="uid://bom7fv0vxnrga" path="res://Sprites/Heart_Active.webp" id="11_16a0w"]
 [ext_resource type="Animation" uid="uid://cswo4h88nhmci" path="res://Animations/Idle.res" id="11_eloj3"]
+[ext_resource type="LabelSettings" uid="uid://cehm53rxi8a62" path="res://Font/font_3.tres" id="13_levx8"]
 [ext_resource type="AudioStream" uid="uid://bnfo1cn55oju0" path="res://Audio/Heartbeat.wav" id="13_sx8rb"]
 [ext_resource type="PackedScene" uid="uid://uu1u05jv4n4" path="res://Game/survive_state.tscn" id="14_tnkya"]
 [ext_resource type="AudioStream" uid="uid://b00tdc58twrr4" path="res://Audio/Main Music Timed in the Dark.wav" id="21_pxsge"]
@@ -623,12 +623,15 @@ theme_override_font_sizes/font_size = 64
 self_modulate = Color(0.513233, 0.513233, 0.513233, 1)
 
 [node name="QuestionField" parent="Questions Panel/QuestionsPanel/PanelContainer/Panel" index="1"]
+texture_filter = 1
 anchor_left = -0.29782
-anchor_top = 0.826667
+anchor_top = 0.813333
 anchor_right = 1.29289
-anchor_bottom = 1.63333
-text = ""
-label_settings = ExtResource("10_cu513")
+anchor_bottom = 1.62
+
+[node name="QuestionNumber" parent="Questions Panel/QuestionsPanel/PanelContainer/Panel" index="2"]
+text = "Question: 1"
+label_settings = ExtResource("13_levx8")
 
 [node name="QuestionValue" parent="Questions Panel/QuestionsPanel/PanelContainer/Panel" index="3"]
 anchors_preset = 7

@@ -5,6 +5,6 @@
 [resource]
 script = ExtResource("1_finrc")
 question = "I played God, now I must pay the price. My cousin, my wife, the love of my life. In my hubris I made, now they all fall. It wanted love I failed to make, I died in the arctic, my Hell I made."
-answers = Array[String](["Mary Shelly", "Lord Byron", "D. Nosfaratu", "Victor Frankenstein"])
+answers = Array[String](["M a r y  S h e l l y", "L o r d  B y r o n", "D.  N o s f a r a t u", "V i c t o r  F r a n k e n s t e i n"])
 correct_answer_index = 3
 score = 500.0

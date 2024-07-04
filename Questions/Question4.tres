@@ -5,6 +5,6 @@
 [resource]
 script = ExtResource("1_x8cdl")
 question = "Illegally extracted, Illegally sold. My seller is Graverobber, I come from a corpse. You can’t feel anything, addicted to the knife. A little glass bottle, touch if you must."
-answers = Array[String](["Spice", "Nuke", "Zydrate", "NZT-48"])
+answers = Array[String](["S p i c e", "N u k e", "Z y d r a t e", "N Z T - 4 8"])
 correct_answer_index = 2
 score = 5000.0

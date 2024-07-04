@@ -8,8 +8,8 @@
 [ext_resource type="LabelSettings" uid="uid://swopcct6qg1x" path="res://Questions Panel/panel.tres" id="4_bpawd"]
 [ext_resource type="PackedScene" uid="uid://cstukqml3y23j" path="res://Questions Panel/answer_button.tscn" id="6_382bk"]
 [ext_resource type="FontFile" uid="uid://cyaetsiyt6peh" path="res://Font/Georgia-zEPX.otf" id="7_8dlw4"]
-[ext_resource type="LabelSettings" uid="uid://cehm53rxi8a62" path="res://Font/font_3.tres" id="8_kuw6q"]
 [ext_resource type="LabelSettings" uid="uid://fi5b1nr40ck2" path="res://Font/font_2.tres" id="9_30flk"]
+[ext_resource type="LabelSettings" uid="uid://blamxg7ddf4q6" path="res://Font/question_font.tres" id="9_uhw4j"]
 
 [sub_resource type="Theme" id="Theme_gtcsw"]
 default_font = ExtResource("7_8dlw4")
@@ -98,7 +98,7 @@ metadata/_edit_use_anchors_ = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer2"]
 layout_mode = 2
-theme_override_constants/separation = 20
+theme_override_constants/separation = 30
 alignment = 1
 
 [node name="AnswerButton" parent="MarginContainer2/VBoxContainer" instance=ExtResource("6_382bk")]
@@ -137,7 +137,7 @@ grow_horizontal = 0
 grow_vertical = 0
 theme_override_fonts/font = ExtResource("7_8dlw4")
 theme_override_font_sizes/font_size = 32
-label_settings = ExtResource("8_kuw6q")
+label_settings = ExtResource("9_uhw4j")
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
