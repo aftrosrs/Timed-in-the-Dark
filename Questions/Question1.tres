@@ -5,6 +5,6 @@
 [resource]
 script = ExtResource("1_or5og")
 question = "A human, a demon, Leviathan I serve. A box of truth, a puzzle with no lies. Dimension to dimension, Heaven, Hell. They're both the same thing, your kind can't tell. Angels to some, demons to others, you opened the box, now come with me, you must."
-answers = Array[String](["Lilitu", "Insanity", "Cenobit", "Pelesit  "])
+answers = Array[String](["L i l i t u", "I n s a n i t y", "C e n o b i t", "P e l e s i t  "])
 correct_answer_index = 2
 score = 100

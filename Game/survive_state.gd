@@ -3,9 +3,9 @@ extends CanvasLayer
 
 
 func _ready() -> void:
-	$PanelContainer/Panel/AnswerButton.text = "Main Menu"
-	$PanelContainer/Panel/AnswerButton2.text = "Restart Game"
-	$PanelContainer/Panel/AnswerButton3.text = "Exit Game"
+	$PanelContainer/Panel/AnswerButton.text = "M a i n  M e n u"
+	$PanelContainer/Panel/AnswerButton2.text = "R e s t a r t  G a m e"
+	$PanelContainer/Panel/AnswerButton3.text = "E x i t  G a m e"
 	$Scroll/AnimationPlayer.play("hmm")
 	$AudioStreamPlayer.play()
 	

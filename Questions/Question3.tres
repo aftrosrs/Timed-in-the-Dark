@@ -5,6 +5,6 @@
 [resource]
 script = ExtResource("1_y0e3l")
 question = "Satan’s daughter, I come from Hell, unfaithful men, in sleep they dwell. All of them, they’ve become sheep, running from responsibility, off a cliff they leap. Falling in your dreams, if you land, you truly sleep. By sleeping with me, it’s death you reap."
-answers = Array[String](["Catherine", "Cynthia", "Medusa", "Jessica"])
+answers = Array[String](["C a t h e r i n e", "C y n t h i a", "M e d u s a", "J e s s i c a"])
 correct_answer_index = 0
 score = 1000.0

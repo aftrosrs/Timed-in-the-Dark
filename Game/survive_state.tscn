@@ -2,10 +2,10 @@
 
 [ext_resource type="Texture2D" uid="uid://bb8po0vxe4vka" path="res://Sprites/Game_Background.webp" id="1_3s1q3"]
 [ext_resource type="Script" path="res://Game/survive_state.gd" id="1_d2akm"]
-[ext_resource type="LabelSettings" uid="uid://cehm53rxi8a62" path="res://Font/font_3.tres" id="2_kk61j"]
 [ext_resource type="LabelSettings" uid="uid://fi5b1nr40ck2" path="res://Font/font_2.tres" id="3_dlf5o"]
 [ext_resource type="Texture2D" uid="uid://bodepjttxpey1" path="res://Sprites/scroll.png" id="3_l0ean"]
 [ext_resource type="PackedScene" uid="uid://cstukqml3y23j" path="res://Questions Panel/answer_button.tscn" id="4_hee1s"]
+[ext_resource type="LabelSettings" uid="uid://blamxg7ddf4q6" path="res://Font/question_font.tres" id="4_vrqys"]
 [ext_resource type="AudioStream" uid="uid://bu5mpe7r0ox5j" path="res://Audio/Menu_Music Timed in the Dark.wav" id="7_sqpld"]
 
 [sub_resource type="Animation" id="Animation_naug3"]
@@ -120,7 +120,7 @@ offset_left = 0.279968
 offset_top = 0.159999
 offset_right = -0.320068
 text = "You Claimed 1000000 Souls"
-label_settings = ExtResource("2_kk61j")
+label_settings = ExtResource("4_vrqys")
 
 [node name="Answered All Correctly" type="Label" parent="PanelContainer/Panel"]
 layout_mode = 1

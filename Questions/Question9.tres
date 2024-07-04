@@ -5,6 +5,6 @@
 [resource]
 script = ExtResource("1_ynvji")
 question = "There is a thing that nothing is, and yet it has a name. It's sometimes tall and sometimes short, joins our talks, joins our sport, and plays at every game"
-answers = Array[String](["Darkness", "Shadow", "Mystic", "Inception"])
+answers = Array[String](["D a r k n e s s ", "S h a d o w", "M y s t i c", "I n c e p t i o n"])
 correct_answer_index = 1
 score = 500000.0

@@ -3,9 +3,9 @@ extends CanvasLayer
 
 
 func _ready() -> void:
-	$MarginContainer2/VBoxContainer/AnswerButton3.text = String("Main Menu")
-	$MarginContainer2/VBoxContainer/AnswerButton.text = String("Restart Game")
-	$MarginContainer2/VBoxContainer/AnswerButton2.text = String("Exit Game")
+	$MarginContainer2/VBoxContainer/AnswerButton3.text = String("M a i n  M e n u")
+	$MarginContainer2/VBoxContainer/AnswerButton.text = String("R e s t a r t  G a m e")
+	$MarginContainer2/VBoxContainer/AnswerButton2.text = String("E x i t  G a m e")
 
 
 
