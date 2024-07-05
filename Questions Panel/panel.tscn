@@ -1,13 +1,16 @@
-[gd_scene load_steps=16 format=3 uid="uid://betkllk0yhnfa"]
+[gd_scene load_steps=18 format=3 uid="uid://betkllk0yhnfa"]
 
 [ext_resource type="Texture2D" uid="uid://b4cnascwf8r57" path="res://Sprites/Answer_Border.png" id="1_e0q01"]
 [ext_resource type="FontFile" uid="uid://cc2cd7c6s2yub" path="res://Font/BaroqueTextJF Regular.ttf" id="1_w3iua"]
 [ext_resource type="FontFile" uid="uid://cyaetsiyt6peh" path="res://Font/Georgia-zEPX.otf" id="2_eo46l"]
 [ext_resource type="PackedScene" uid="uid://cstukqml3y23j" path="res://Questions Panel/answer_button.tscn" id="2_up148"]
+[ext_resource type="StyleBox" uid="uid://c3s8qu3gx61fu" path="res://Questions Panel/panelstyle.tres" id="4_2u0q1"]
 [ext_resource type="LabelSettings" uid="uid://blamxg7ddf4q6" path="res://Font/question_font.tres" id="4_ape46"]
 [ext_resource type="Theme" uid="uid://njobidcon4c5" path="res://Font/font_theme.tres" id="4_ddt66"]
 [ext_resource type="LabelSettings" uid="uid://cehm53rxi8a62" path="res://Font/font_3.tres" id="4_kr8ly"]
 [ext_resource type="Texture2D" uid="uid://cesrml4wkf571" path="res://Sprites/Eye.png" id="6_tojeo"]
+[ext_resource type="StyleBox" uid="uid://djwe5fv7g1nun" path="res://Questions Panel/questionfield.tres" id="7_rqutg"]
+[ext_resource type="LabelSettings" uid="uid://swopcct6qg1x" path="res://Questions Panel/panel.tres" id="8_y8wmo"]
 
 [sub_resource type="Theme" id="Theme_3lega"]
 default_font = ExtResource("1_w3iua")
@@ -33,12 +36,6 @@ shadow_color = Color(0.215686, 0, 0, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3klpf"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s7qcf"]
-bg_color = Color(0, 0, 0, 0.203922)
-shadow_color = Color(0.541176, 0, 0, 0.101961)
-shadow_size = 1
-anti_aliasing_size = 10.0
-
 [node name="QuestionsPanel" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -49,7 +46,7 @@ offset_bottom = 4.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
-size_flags_vertical = 0
+size_flags_vertical = 2
 
 [node name="Question Timer" type="Label" parent="."]
 layout_mode = 0
@@ -128,11 +125,12 @@ metadata/_edit_use_anchors_ = true
 [node name="QuestionField" type="Label" parent="PanelContainer/Panel"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = -0.296108
-anchor_top = 0.573333
-anchor_right = 1.27063
-anchor_bottom = 1.8
-offset_left = -0.072998
+anchor_left = -0.302849
+anchor_top = 0.786334
+anchor_right = 1.29289
+anchor_bottom = 1.73333
+offset_left = -0.136078
+offset_top = 0.0499496
 offset_right = -0.0480347
 grow_horizontal = 2
 grow_vertical = 2
@@ -145,7 +143,7 @@ theme_override_constants/shadow_outline_size = 47
 theme_override_constants/line_spacing = 0
 theme_override_fonts/font = ExtResource("2_eo46l")
 theme_override_font_sizes/font_size = 30
-theme_override_styles/normal = SubResource("StyleBoxFlat_s7qcf")
+theme_override_styles/normal = ExtResource("4_2u0q1")
 text = "A human, a demon, Leviathan I serve. A box of truth, a puzzle with no lies. Dimension to dimension, Heaven, Hell. They're both the same thing, your kind can't tell. Angels to some, demons to others, you opened the box, now come with me, you must."
 label_settings = ExtResource("4_ape46")
 horizontal_alignment = 1
@@ -154,16 +152,20 @@ autowrap_mode = 3
 metadata/_edit_use_anchors_ = true
 
 [node name="QuestionNumber" type="Label" parent="PanelContainer/Panel"]
+texture_filter = 1
 layout_mode = 1
 anchors_preset = -1
 anchor_left = -0.131849
-anchor_top = 0.193333
+anchor_top = 0.12
 anchor_right = 1.08855
-anchor_bottom = 0.906333
+anchor_bottom = 0.833
 offset_right = 0.287998
 offset_bottom = 0.0499973
 theme = ExtResource("4_ddt66")
-label_settings = ExtResource("4_ape46")
+theme_type_variation = &"HeaderLarge"
+theme_override_styles/normal = ExtResource("7_rqutg")
+text = "Question: 1"
+label_settings = ExtResource("8_y8wmo")
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
@@ -195,6 +197,7 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("6_tojeo")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
+texture_filter = 1
 layout_mode = 2
 anchor_left = 0.237
 anchor_top = 0.437

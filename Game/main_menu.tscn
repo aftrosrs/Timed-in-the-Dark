@@ -340,10 +340,9 @@ anchor_bottom = 0.0
 offset_left = 447.0
 offset_top = 395.0
 offset_right = 748.0
-offset_bottom = 542.0
+offset_bottom = 541.0
 grow_horizontal = 1
 grow_vertical = 1
-text = "L i l i t u"
 metadata/_edit_group_ = true
 
 [node name="ColorRect" parent="ExitGame" index="1"]
@@ -359,7 +358,6 @@ offset_top = 197.0
 offset_right = 748.0
 offset_bottom = 343.0
 grow_vertical = 0
-text = "L i l i t u"
 metadata/_edit_group_ = true
 
 [node name="ColorRect" parent="StartGame" index="1"]

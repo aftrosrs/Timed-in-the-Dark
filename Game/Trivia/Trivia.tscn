@@ -628,9 +628,9 @@ anchor_left = -0.29782
 anchor_top = 0.813333
 anchor_right = 1.29289
 anchor_bottom = 1.62
+text = "A  human,  a demon,  Leviathan  I  serve.  A  box  of  truth,  a  puzzle  with  no  lies. Dimension  to  dimension,  Heaven,  Hell.  They're  both  the  same  thing,  your  kind  can't  tell.  Angels  to  some,  demons  to  others,  you  opened  the  box,  now  come  with  me,  you  must."
 
 [node name="QuestionNumber" parent="Questions Panel/QuestionsPanel/PanelContainer/Panel" index="2"]
-text = "Question: 1"
 label_settings = ExtResource("13_levx8")
 
 [node name="QuestionValue" parent="Questions Panel/QuestionsPanel/PanelContainer/Panel" index="3"]
@@ -646,6 +646,15 @@ offset_bottom = 551.0
 grow_horizontal = 2
 grow_vertical = 0
 text = "For 100 Souls"
+
+[node name="AnswerButton2" parent="Questions Panel/QuestionsPanel/HBoxContainer" index="1"]
+text = "I n s a n i t y"
+
+[node name="AnswerButton3" parent="Questions Panel/QuestionsPanel/HBoxContainer2" index="0"]
+text = "C e n o b i t"
+
+[node name="AnswerButton4" parent="Questions Panel/QuestionsPanel/HBoxContainer2" index="1"]
+text = "P e l e s i t"
 
 [node name="Hearts" type="CanvasLayer" parent="."]
 

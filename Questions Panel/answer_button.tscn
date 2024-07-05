@@ -21,16 +21,15 @@ theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0.670998, 0.00600371, 0.16965, 1)
 theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 24
-theme_override_constants/h_separation = 6
-theme_override_font_sizes/font_size = 32
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 48
 theme_override_styles/normal = ExtResource("2_ween6")
 theme_override_styles/hover = ExtResource("2_ween6")
 theme_override_styles/pressed = ExtResource("2_ween6")
 theme_override_styles/disabled = ExtResource("2_ween6")
 theme_override_styles/focus = ExtResource("2_ween6")
 action_mode = 0
-text = "Lilitu"
+text = "L i l i t u"
 flat = true
 
 [node name="TextureRect" type="TextureRect" parent="."]
